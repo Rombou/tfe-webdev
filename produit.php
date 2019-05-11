@@ -1,0 +1,350 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Gravissime - Produits</title>
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+    <link rel="shortcut icon" href="assets/image/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="assets/image/favicon.ico" type="image/x-icon">
+    <style type="text/css">
+        .img_hover{
+		position: relative;
+        height: auto;
+        overflow: hidden;
+	}
+	.img_hover:hover .caption{
+		opacity: 1;
+		transform: translateY(-35px);
+		-webkit-transform:translateY(-35px);
+		-moz-transform:translateY(-35px);
+		-ms-transform:translateY(-35px);
+		-o-transform:translateY(-35px);
+	}
+    .img_hover:hover .caption-text{
+        color: #222;
+        }
+	.img_hover img{
+		z-index: 4;
+	}
+	.caption{
+        opacity: 0.5;
+		position: absolute;
+		bottom:25px;
+		-webkit-transition:all 0.3s ease-in-out;
+		-moz-transition:all 0.3s ease-in-out;
+		-o-transition:all 0.3s ease-in-out;
+		-ms-transition:all 0.3s ease-in-out;
+		transition:all 0.3s ease-in-out;
+		width: 100%;
+	}
+	.caption-text{
+        background-color: #fafc3a;
+		z-index: 10;
+		color: #777;
+		position: absolute;
+		text-align: center;
+		top:0px;
+		width: 100%;
+        padding: 0.5em 0;
+        height: 60px;
+	}
+    caption h5 {
+        background-color: #fafc3a;
+		color: #222;
+		text-align: center;
+		width: 100%;
+        padding: 0.5em 0;
+        height: 60px;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <header class="col-xs-12 mt-5 pull-right">
+        <img src="assets/image/logo.png" width="100%" class="header">
+        <div class="text-center text-uppercase pb-1 pt-3" style="background-color : #fafc3a;">
+            <p>Votre solution pour la livraison de graviers, sables, béton, sables stabilisés,...</p>
+        </div>
+    </header>
+    <div class="mx auto">
+        <?php
+          include 'banner.php';  
+        ?>
+    </div>
+</div>
+<div class="container">
+   <div class="col-xs-12 content">
+        <div class="row">
+            <div class="col-lg-3 col-md-2 col-sm-1 col-xs-2">
+                <?php
+                  include 'navigation.php';  
+                ?>
+            </div>
+            <div class="col-lg-9 col-md-10 d-none d-lg-block my-1">
+                <div class="container">
+                   <nav aria-label="breadcrumb">
+                      <ol class="breadcrumb bg-light">
+                        <li class="breadcrumb-item">Gravissime</li>
+                        <li class="breadcrumb-item active">Produits</li>
+                      </ol>
+                </nav>
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6 col-sm-6 my-2">
+                            <div class="img_hover">
+                                <a href="page/gravier.php">
+                                    <img src="assets/image/types/gravier.jpg" width="100%" class="img-responsive">
+                                </a>
+                                <div class="caption">
+                                    <div class="caption-text">
+                                        <h5>Graviers et galets</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 my-2">
+                            <div class="img_hover">
+                                <a href="page/concasse_recycle.php">
+                                    <img src="assets/image/types/recycle-concassee.png" width="100%" class="img-responsive" alt="">
+                                </a>
+                                <div class="caption">
+                                    <div class="caption-text">
+                                        <h5>Concassés de recyclés</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 my-2">
+                            <div class="img_hover">
+                                <a href="page/sables.php">
+                                    <img src="assets/image/types/sable.jpg" width="100%" class="img-responsive" alt="">
+                                </a>
+                                <div class="caption">
+                                    <div class="caption-text">
+                                        <h5>Sables</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 my-2">
+                            <div class="img_hover">
+                                <a href="page/brique_pilee.php">
+                                    <img src="assets/image/types/brique-pilee.jpg" width="100%" class="img-responsive" alt="">
+                                </a>
+                                <div class="caption">
+                                    <div class="caption-text">
+                                        <h5>Brique pilée</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 my-2">
+                            <div class="img_hover">
+                                <a href="page/sable_stabilise.php">
+                                    <img src="assets/image/types/sables_stabilise.jpg" width="100%" class="img-responsive" alt="">
+                                </a>
+                                <div class="caption">
+                                    <div class="caption-text">
+                                        <h5>Sables stabilisés</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 my-2">
+                            <div class="img_hover">
+                                <a href="page/beton_maigre.php">
+                                    <img src="assets/image/types/beton.jpg" width="100%" class="img-responsive" alt="">
+                                </a>
+                                <div class="caption">
+                                    <div class="caption-text">
+                                        <h5>Bétons maigres</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 my-2">
+                            <div class="img_hover">
+                                <a href="page/dolomie_stabilise.php">
+                                    <img src="assets/image/types/dolomie.jpg" width="100%" class="img-responsive" alt="">
+                                </a>
+                                <div class="caption">
+                                    <div class="caption-text">
+                                        <h5>Dolomie stabilisée</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 my-2">
+                            <div class="img_hover">
+                                <a href="page/autres.php">
+                                    <img src="assets/image/types/geotex.jpg" width="100%" class="img-responsive" alt="">
+                                </a>
+                                <div class="caption">
+                                    <div class="caption-text">
+                                        <h5>Géotextiles</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-sm-12 col-md-10 d-lg-none d-none d-sm-block my-2 mx-auto">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-sm-6 mb-3 mx-auto">
+                                <a href="page/gravier.php">
+                                    <img src="assets/image/types/gravier.jpg" width="100%" class="img-responsive">
+                                </a>
+                                    <footer>
+                                        <h5 class="text-center py-3">Graviers et galets</h5>
+                                    </footer>
+                        </div>
+                        <div class="col-sm-6 mb-3 mx-auto">
+                                <a href="page/concasse_recycle.php">
+                                    <img src="assets/image/types/recycle-concassee.png" width="100%" class="img-responsive" alt="">
+                                </a>
+                                <footer>
+                                        <h5 class="text-center py-3">Concassés de recyclés</h5>
+                                </footer>
+                        </div>
+                        <div class="col-sm-6 mb-3 mx-auto">
+                                <a href="page/sables.php">
+                                    <img src="assets/image/types/sable.jpg" width="100%" class="img-responsive" alt="">
+                                </a>
+                            <footer>
+                                <h5 class="text-center py-3">Sables</h5>
+                            </footer>
+                        </div>
+                        <div class="col-sm-6 mb-3 mx-auto">
+                                <a href="page/brique_pilee.php">
+                                    <img src="assets/image/types/brique-pilee.jpg" width="100%" class="img-responsive" alt="">
+                                </a>
+                                    <footer>
+                                        <h5 class="text-center py-3">Brique pilée</h5>
+                                    </footer>
+                        </div>
+                        <div class="col-sm-6 mb-3 mx-auto">
+                                <a href="page/sable_stabilise.php">
+                                    <img src="assets/image/types/sables_stabilise.jpg" width="100%" class="img-responsive" alt="">
+                                </a>
+                                <footer>
+                                    <h5 class="text-center py-3">Sables stabilisés</h5>
+                                </footer>
+                        </div>
+                        <div class="col-sm-6 mb-3 mx-auto">
+                                <a href="page/beton_maigre.php">
+                                    <img src="assets/image/types/beton.jpg" width="100%" class="img-responsive" alt="">
+                                </a>
+                                    <footer>
+                                        <h5 class="text-center py-3">Bétons maigres</h5>
+                                    </footer>
+                        </div>
+                        <div class="col-sm-6 mb-3 mx-auto">
+                                <a href="page/dolomie_stabilise.php">
+                                    <img src="assets/image/types/dolomie.jpg" width="100%" class="img-responsive" alt="">
+                                </a>
+                                    <footer>
+                                        <h5 class="text-center py-3">Dolomie stabilisée</h5>
+                                    </footer>
+                        </div>
+                        <div class="col-sm-6 mb-3 mx-auto">
+                                <a href="page/autres.php">
+                                    <img src="assets/image/types/geotex.jpg" width="100%" class="img-responsive" alt="">
+                                </a>
+                                    <footer>
+                                        <h5 class="text-center py-3">Géotextiles</h5>
+                                    </footer>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="d-sm-none d-xs-block my-2 mx-auto">
+                <div class="container">
+                        <div class="col-10 mb-3 mx-auto">
+                                <a href="page/gravier.php">
+                                    <img src="assets/image/types/gravier.jpg" width="100%" class="img-responsive">
+                                </a>
+                                    <footer>
+                                        <h5 class="text-center py-3">Graviers et galets</h5>
+                                    </footer>
+                        </div>
+                        <div class="col-10 mb-3 mx-auto">
+                                <a href="page/concasse_recycle.php">
+                                    <img src="assets/image/types/recycle-concassee.png" width="100%" class="img-responsive" alt="">
+                                </a>
+                                <footer>
+                                        <h5 class="text-center py-3">Concassés de recyclés</h5>
+                                </footer>
+                        </div>
+                        <div class="col-10 mb-3 mx-auto">
+                                <a href="page/sables.php">
+                                    <img src="assets/image/types/sable.jpg" width="100%" class="img-responsive" alt="">
+                                </a>
+                            <footer>
+                                <h5 class="text-center py-3">Sables</h5>
+                            </footer>
+                        </div>
+                        <div class="col-10 mb-3 mx-auto">
+                                <a href="page/brique_pilee.php">
+                                    <img src="assets/image/types/brique-pilee.jpg" width="100%" class="img-responsive" alt="">
+                                </a>
+                                    <footer>
+                                        <h5 class="text-center py-3">Brique pilée</h5>
+                                    </footer>
+                        </div>
+                        <div class="col-10 mb-3 mx-auto">
+                                <a href="page/sable_stabilise.php">
+                                    <img src="assets/image/types/sables_stabilise.jpg" width="100%" class="img-responsive" alt="">
+                                </a>
+                                <footer>
+                                    <h5 class="text-center py-3">Sables stabilisés</h5>
+                                </footer>
+                        </div>
+                        <div class="col-10 mb-3 mx-auto">
+                                <a href="page/beton_maigre.php">
+                                    <img src="assets/image/types/beton.jpg" width="100%" class="img-responsive" alt="">
+                                </a>
+                                    <footer>
+                                        <h5 class="text-center py-3">Bétons maigres</h5>
+                                    </footer>
+                        </div>
+                        <div class="col-10 mb-3 mx-auto">
+                                <a href="page/dolomie_stabilise.php">
+                                    <img src="assets/image/types/dolomie.jpg" width="100%" class="img-responsive" alt="">
+                                </a>
+                                    <footer>
+                                        <h5 class="text-center py-3">Dolomie stabilisée</h5>
+                                    </footer>
+                        </div>
+                        <div class="col-10 mb-3 mx-auto">
+                                <a href="page/autres.php">
+                                    <img src="assets/image/types/geotex.jpg" width="100%" class="img-responsive" alt="">
+                                </a>
+                                    <footer>
+                                        <h5 class="text-center py-3">Géotextiles</h5>
+                                    </footer>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+</div>
+<div class="container">
+    <footer>
+        <?php
+          include 'footer.php';  
+        ?>
+    </footer>
+</div>
+<script src="assets/js/jquery.js"></script>
+<script src="assets/js/popper.min.js"></script> 
+<script src="assets/js/bootstrap.min.js"></script> 
+<script type="text/javascript" src="assets/scripts/mootools.js"></script>
+<script type="text/javascript" src="assets/scripts/multibox.js"></script>
+<script type="text/javascript" src="assets/scripts/overlay.js"></script>   
+</body>
+</html>

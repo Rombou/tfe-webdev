@@ -1,0 +1,64 @@
+@import url('https://fonts.googleapis.com/css?family=Open+Sans');
+@media only screen and (max-width: 700px){
+    .modal-content {
+        width: 100%;
+    }
+}
+body {
+    font-family: 'Open Sans', sans-serif;
+    font-size: 12pt;
+    color: #222;
+    background: #a9a89d;
+    background-size: cover; 
+}
+.content {
+    background-color: #e8e6e3;
+}
+.nav-link {
+	text-align: center; 
+}
+.nav-link ul {
+	list-style: inherit;
+    margin:auto;
+}
+.nav-link li {
+    background-color: #f8f9fa;
+    list-style: none;
+    padding: 0.5em 0;
+}
+.nav-link li:hover {
+	background-color: #fafc3a; 
+}
+.nav-link a {
+    text-decoration: none;
+    color: #222;
+    text-align: center;
+    text-transform: uppercase;
+    display: block;
+}
+a {
+    color: #222;
+}
+a:hover{
+    font-weight: bolder;
+}
+h4 {
+    font-size: 13pt;
+    font-weight: bold;
+}
+h5 {
+    font-size: 12pt;
+}
+
+footer {
+    background-color: #fafc3a;
+}
+legend {
+    font-size: 12pt;
+}
+fieldset {
+    border: 1pt solid #222;
+}
+.pannel-tittle a:hover {
+    text-decoration: none;
+}
