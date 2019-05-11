@@ -161,30 +161,6 @@ if (!$erreur){
 			 </tr>
                 </table>
 			  </form>
-			  <form action="connexion.php" method="post" id="connexion" name="inscription">
-                    <fieldset>
-                        <legend class="text-center">Se connecter</legend>
-                        <p>
-                            <label for="login" class="col-sm-4">Identifiant</label>
-                            <input class="col-sm-6" placeholder="Login" name="login" id="login" type="text">
-                        </p>
-                        <p>
-                            <label for="passwrd" class="col-sm-4">Mot de passe</label>
-                            <input class="col-sm-6" value="" name="pass" id="pass" type="password">
-                        </p>
-                        <p class="mt-2">
-                            <center>
-                                <input class="col-4 btn btn-light" name="submit" id="submit" type="submit" value="OK">  
-                                <input class="col-4 btn btn-light" name="cancel" id="cancel" type="reset" value="Annuler">
-                            </center>
-                        </p>
-                        <p class="mt-2 col-12">
-                            <a color="#222" href="connexion_oubli.php">Login/mot de passe oublié ?</a>
-                            <br>
-                            <a color="#222" href="connexion_enregistrement.php">S'enregistrer</a>
-                        </p>
-                    </fieldset>
-                </form>
 			<?php
 		}
 	}
