@@ -162,6 +162,7 @@ if (!$erreur){
         </div>
     </div>
     </div>
+</div>
 <div class="container">
     <footer class="col-xs-12 row">
         <?php
