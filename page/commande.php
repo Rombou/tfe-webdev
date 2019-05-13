@@ -88,7 +88,7 @@ if (!$erreur){
         $donnees = $req->fetch();
             ?>
             <h4>Adresse du destinataire</h4>
-                <p> <input type="text" name="nom" value="<?=$donnees['nom_ut'].' '.$donnees['prenom'];?>"> <?=$donnees['nom_ut'].' '.$donnees['prenom'];?></p>
+                <p> <input type="hidden" name="nom" value="<?=$donnees['nom_ut'].' '.$donnees['prenom'];?>"> <?=$donnees['nom_ut'].' '.$donnees['prenom'];?></p>
                 <p> <input type="hidden" name="email" value="<?=$donnees['email'];?>"> <?=$donnees['email'];?></p>
                 <p> <input type="hidden" name="tel" value="<?=$donnees['telephone'];?>"><?=$donnees['telephone'];?></p>
                 <p> <input type="hidden" name="adresse" value="<?=$donnees['adresse'].' '.$donnees['numero'];?>"><?=$donnees['adresse'].' '.$donnees['numero'];?><br>

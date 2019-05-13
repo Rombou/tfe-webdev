@@ -1,22 +1,19 @@
 <?php
-// importe le fichier
-require('commande.php');
-
+require_once('fpdf/fpdf.php');
 
 // - - - - - - - - - - - - - - - - - - - - - - - - - 
 //
 // #1 initialise les informations de base
 //
 // adresse de l'entreprise qui émet la facture
-$adresse = "Archipel SPRL\n 1380 Lasne \n info@gravissime.biz";
+$adresse = "Archipel SPRL \n 1380 Lasne \n info@gravissime.biz";
 
 // adresse du client
 $client = $_POST['nom'] "\n" $_POST['email']"\n" $_POST['tel']"/n" $_POST['adresse'] "/r" $_POST['commune'] ;
 
 // pied de page
 $piedPage1 = "Archipel SPRL - 1380 Lasne - info@gravissime.biz - 0494 44 41 42";
-$piedPage2 = "Les produits livrés demeurent la propriété exclusive de notre entreprise jusqu'au paiement complet de la présente facture.";
-$piedPage3 = "TVA : BE 0460 510 864";
+$piedPage2 = "TVA : BE 0460 510 864";
 
 // initialise l'objet facturePDF
 // gabarit : 	template['header']
@@ -28,7 +25,7 @@ $piedPage3 = "TVA : BE 0460 510 864";
 //	- l'adresse du client
 //	- le pied de page
 //
-$pdf = new facturePDF($adresse, $client, $piedPage1."\n".$piedPage2."\n".$piedPage3);
+$pdf = new facturePDF($adresse, $client, $piedPage1."\n".$piedPage2);
 
 // défini le logo avec setLogo()
 // il suffit de passer l'adresse du logo en paramètre
@@ -130,6 +127,5 @@ $pdf->buildPDF();
 // Output attend 2 paramètres. Le nom du fichier et le mode. 'I' permet d'afficher le fichier, 'D' permet de le télécharger.
 // plus d'info à http://www.fpdf.org/fr/doc/output.htm
 //
-$pdf->Output('facture.pdf', 'D');
-header ('location:envoicommande.php');
+$pdf->Output('facture.pdf', 'I');
 ?>

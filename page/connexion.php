@@ -54,19 +54,7 @@
                                 else
                                 {
                                     if ($mdp == $resultat['password']) {
-                                        echo 'Bonjour <span class="text-uppercase">'.$resultat['nom_ut'].'</span><span class="text-capitalize"> '.$resultat['prenom'].'</span>';
-                ?>, voulez-vous continuer cette commande ?
-                                        <div class="container">
-                                           <center>
-                                            <div class="m-2 col-3 row">
-                                                <a href="commande.php" class="m-1 btn btn-light">Oui</a>
-                                                    <input name="login" type="hidden" value="<?=$login;?>">
-
-                                                <a href="panier.php" class="m-1 btn btn-light">Non</a>
-                                            </div>
-                                            </center>
-                                        </div>
-                                        <?php
+                                        header ('location:commande.php');
                                     }
                                     else {
                                         echo 'Mauvais mot de passe !';

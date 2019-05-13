@@ -1,7 +1,8 @@
 <?php
+include ('header.php');
 session_start();
-include 'header.php';
 include_once("fonctions-panier.php");
+
 $erreur = false;
 
 $action = (isset($_POST['action'])? $_POST['action']:  (isset($_GET['action'])? $_GET['action']:null )) ;
@@ -43,6 +44,7 @@ if (!$erreur){
       Case "suppression":
          supprimerArticle($l);
          break;
+
       Case "refresh" :
          for ($i = 0 ; $i < count($QteArticle) ; $i++)
          {
@@ -99,67 +101,56 @@ if (!$erreur){
                         <li class="breadcrumb-item active">Panier</li>
                       </ol>
                 </nav>
+    <div class="container">
     <h4>Votre pannier</h4>
     <?php
 	if (creationPanier())
 	{
 		$nbArticles=count($_SESSION['panier']['libelleProduit']);
 		if ($nbArticles <= 0) { ?>
-		<table class="table col-sm-12" width="100%">
-		<tr class='bg-light'><td colspan='4'>Votre panier est vide </ td></tr>
-		<tr class="mx-1 text-center">
-			    <td colspan="4" class="table-secondary">
-			        <a class='btn btn-light text-center' href='../produit.php' ><i class="fas fa-plus"></i></a>
-			    </td>
-			</tr>
-        </table>
+		<div class='bg-light col-12 p-1'>Votre panier est vide </div>
+		<div class="p-1 text-center col-12 table-secondary">
+			        <a class='btn btn-light text-center' href='../produit.php' title="Ajout produit"><i class="fas fa-plus"></i></a>
+			    </div>
 		<?php }
 		else
 		{
             ?>
-            <form method="post" action="panier.php">
-                    <table class="table" >
-                       <thead class="table-secondary">
-                          <th class="d-block d-sm-none">Produit</th>
-                           <th ><span class=" d-none d-sm-block">Libellé</span></th>
-                           <th><span class="d-none d-sm-block">Quantité</span></th>
-                           <th><span class="d-none d-sm-block">Prix Unitaire</span></th>
-                           <th ></th>
-                        </thead>
+            <form method="post" action="panier.php" class="row">
+                    <div class="container" >
+                       <div class="table-secondary row col-12">
+                          <h4 class="d-block d-sm-none col-12">Produit</h4>
+                           <h4 class=" d-none d-sm-block col-sm-5">Libellé</h4>
+                           <h4 class="d-none d-sm-block col-sm-3">Quantité</h4>
+                           <h4 class="d-none d-sm-block col-sm-3">Prix Unitaire</h4>
+                        </div>
             <?php
 			for ($i=0 ;$i < $nbArticles ; $i++)
 			{
 				?>
-                        <tbody class='bg-light'>
-                           <td class="d-block d-sm-none" colspan="4">
-                                <p><b>Libellé : </b><br> <?=htmlspecialchars($_SESSION['panier']['libelleProduit'][$i]);?></p>
-                                <p><b>Quantité : </b><br> <input class='form-control' type='number' name='q[]' placeholder="<?=htmlspecialchars($_SESSION['panier']['qteProduit'][$i]);?>" min='1' max='99'></p>
-                                <p><b>Prix Unitaire : </b><br> <?=htmlspecialchars($_SESSION['panier']['prixProduit'][$i]);?></p>
-                            </td>
-                            <td><span class="d-none d-sm-block"><?=htmlspecialchars($_SESSION['panier']['libelleProduit'][$i]);?></span></ td>
-                            <td><span class="d-none d-sm-block"><input class='btn btn-light' type='number' name='q[]' value="<?=htmlspecialchars($_SESSION['panier']['qteProduit'][$i]);?>" min='1' max='99'></span></td>
-                            <td><span class="d-none d-sm-block"><?=htmlspecialchars($_SESSION['panier']['prixProduit'][$i]);?></span></td>
-                        <td class="align-middle"><a class='btn btn-light text-center' href="<?=htmlspecialchars("panier.php?action=suppression&l=".rawurlencode($_SESSION['panier']['libelleProduit'][$i]));?>"><i class='fas fa-times'></i></a></td>
-                        </tbody>
+                        <div class='bg-light row col-12 border-bottom py-2'>
+                            <div class="col-sm-5"><span class="d-sm-none d-block mt-1"><h4>Libellé :</h4></span><?=htmlspecialchars($_SESSION['panier']['libelleProduit'][$i]);?></div>
+                            <div class="col-sm-3"><span class="d-sm-none d-block mt-1"><h4>Quantité :</h4> </span><input class='form-control' type='number' name='q[]' value="<?=htmlspecialchars($_SESSION['panier']['qteProduit'][$i]);?>" min='1' max='99'></div>
+                            <div class="col-sm-3"><span class="d-sm-none d-block mt-1"><h4>Prix Unitaire :</h4></span><?=htmlspecialchars($_SESSION['panier']['prixProduit'][$i]);?></div>
+                            <div class="mx-auto col-sm-1 text-center"><a class='btn btn-light' href="<?=htmlspecialchars("panier.php?action=suppression&l=".rawurlencode($_SESSION['panier']['libelleProduit'][$i]));?>"><i class='fas fa-times'></i></a></div>
+                        </div>
 				<?php
 			         }
 			     ?>
-                    <tr class="text-center">
-			    <td class="table-secondary" colspan="5">
-                     <input type="submit" value="&#8634;" class="btn btn-light font-weight-bold" />
+                    <div class="table-secondary col-12 row text-center py-2">
+                    <div class="mx-auto">
+                     <input type="submit" value="&#8634;" class="btn btn-light font-weight-bold" title="Raffraichir"/>
 			         <input type="hidden" name="action" value="refresh"/>
-			        <a class='btn btn-light text-center' href='../produit.php' ><i class="fas fa-plus"></i></a>
-			    </td>
-			</tr>
-			<tr class="mx-1 text-center">
-                <td colspan='5' class="bg-light p-2"><span>Total : <?=MontantGlobal();?> €</span>
-			 </td></tr>
-			 <tr>
-			     <td colspan="5" class="mx-1 text-center">
-                    <a class="btn btn-light" onclick="$('#connexion').modal('show');" style="cursor: pointer">Commander</a>
-			     </td>
-			 </tr>
-                </table>
+			        <a class='btn btn-light text-center' href='../produit.php' title="Ajout produit"><i class="fas fa-plus"></i></a>
+                        </div>
+			    </div>
+			<div class="col-12 row py-2">
+                <span class="mx-auto text-center">Total : <?=MontantGlobal();?> €</span>
+			 </div>
+			 <div class="col-12 row text-center">
+                    <a class="btn btn-light mx-auto mb-2" onclick="$('#connexion').modal('show');" style="cursor: pointer">Commander</a>
+			 </div>
+                </div>
 			  </form>
 			<?php
 		}
@@ -170,9 +161,9 @@ if (!$erreur){
        </div> 
         </div>
     </div>
-</div>
+    </div>
 <div class="container">
-    <footer class="col-xs-12">
+    <footer class="col-xs-12 row">
         <?php
           include 'footer.php';  
         ?>
