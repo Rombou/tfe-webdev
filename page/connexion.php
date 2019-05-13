@@ -35,12 +35,12 @@
                         <li class="breadcrumb-item">Commande</li>
                       </ol>
                 </nav>
-            <div class="container text-center border col-10 col-md-8 border-secondary">
+            <div class="container text-center border col-10 col-md-8 border-secondary mb-2 pb-2">
                 <?php
                         include 'header.php';
                             $login=$_POST['login'];
                             $mdp=$_POST['pass'];
-                            $req = $bdd->prepare('SELECT * FROM utilisateur WHERE login= :pseudo');
+                            $req = $bdd->prepare('SELECT * FROM utilisateur INNER JOIN ville ON vilid=villeid WHERE login= :pseudo');
                             $req->execute(array(
                                 'pseudo' => $login));
                             $resultat = $req->fetch();
@@ -54,7 +54,18 @@
                                 else
                                 {
                                     if ($mdp == $resultat['password']) {
-                                        header ('location:commande.php');
+                                        ?> 
+                                        <form action="commande.php" method="post">
+                                         <input type="hidden" name="nom" value="<?=$resultat['nom_ut'];?>"><input type="hidden" name="prenom" value="<?=$resultat['prenom'];?>">
+                                        <input type="hidden" name="email" value="<?=$resultat['email'];?>">
+                                            <input type="hidden" name="tel" value="<?=$resultat['telephone'];?>">
+                                            <input type="hidden" name="adresse" value="<?=$resultat['adresse'];?>"> <input type="hidden" name="num" value="<?=$resultat['numero'];?>">
+                                            <input type="hidden" name="cp" value="<?=$resultat['cp'];?>"> <input type="hidden" name="commune" value="<?=$resultat['commune'];?>">
+                                        <p> Bonjour <?=$resultat['nom_ut'];?> <?=$resultat['prenom'];?>, voulez-vous continuer ?</p>
+                                        <a href="panier.php" class="btn btn-light col-2">Non</a>
+                                        <input class="btn btn-light col-2" type="submit" value="Oui">
+                                        </form>
+                                        <?php
                                     }
                                     else {
                                         echo 'Mauvais mot de passe !';

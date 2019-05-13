@@ -1,6 +1,5 @@
 <?php
 session_start();
-include 'header.php';
 include_once("fonctions-panier.php");
 $erreur = false;
 
@@ -61,43 +60,53 @@ if (!$erreur){
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Gravissime - Commande </title>
+    <title>Gravissime - Commande</title>
     <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../assets/css/normalize.css">
     <link rel="stylesheet" type="text/css" href="../assets/css/styles.css">
     <link rel="shortcut icon" href="../assets/image/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="assets/image/favicon.ico" type="image/x-icon">
-    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css" integrity="sha384-lZN37f5QGtY3VHgisS14W3ExzMWZxybE1SJSEsQp9S+oqd12jhcu+A56Ebc1zFSJ" crossorigin="anonymous">
+    <link rel="icon" href="../assets/image/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
+    <style type="text/css">
+        a:hover {
+            color: #222;
+        }
+    </style>
 </head>
 <body>
-<div class="container bg-light">
-    <header class=" mt-5 row">
-        <img src="../assets/image/logo.png" width="100%" class="header">
-        <div class="text-center text-uppercase col-12 pb-1 pt-3" style="background-color : #fafc3a;">
-            <p>Votre solution pour la livraison de graviers, sables, béton, sables stabilisés,...</p>
-        </div>
+<div class="container">
+    <header class="col-xs-12 mt-5 pull-right">
+            <img src="../assets/image/logo.png" width="100%" class="header">
+            <div class="text-center text-uppercase pb-1 pt-3" style="background-color : #fafc3a;">
+                <p>Votre solution pour la livraison de graviers, sables, bêton, sables stabilisés,...</p>
+            </div>
     </header>
-   <div class="col-xs-12">
-       <div class="container text-center py-2">
+</div>
+   <div class="container">
+       <div class="text-center py-2 content">
+           <div class="container">
             <form action="commandetopdf.php" action="post">
-    <?php
-        $login=$_POST['login'];
-        $req = $bdd->prepare('SELECT * FROM utilisateur INNER JOIN ville ON vilid=villeid WHERE login= :pseudo');
-        $req->execute(array(
-            'pseudo' => $login));
-        $donnees = $req->fetch();
-            ?>
             <h4>Adresse du destinataire</h4>
-                <p> <input type="hidden" name="nom" value="<?=$donnees['nom_ut'].' '.$donnees['prenom'];?>"> <?=$donnees['nom_ut'].' '.$donnees['prenom'];?></p>
-                <p> <input type="hidden" name="email" value="<?=$donnees['email'];?>"> <?=$donnees['email'];?></p>
-                <p> <input type="hidden" name="tel" value="<?=$donnees['telephone'];?>"><?=$donnees['telephone'];?></p>
-                <p> <input type="hidden" name="adresse" value="<?=$donnees['adresse'].' '.$donnees['numero'];?>"><?=$donnees['adresse'].' '.$donnees['numero'];?><br>
-                    <input type="hidden" name="commune" value="<?=$donnees['cp'].' '.$donnees['commune'];?>"><?=$donnees['cp'].' '.$donnees['commune'];?></p>
-    <h4>Commande</h4>
-    <table class="table table-light col-5 mx-auto">
-                           <tr class="table-secondary">
-                               <th>Libellé</th>
-                               <th>Quantité</th>
+               <?php
+                    $nom = $_POST['nom'];
+                    $prenom = $_POST['prenom'];
+                    $email = $_POST['email'];
+                    $tel = $_POST['tel'];
+                    $adresse = $_POST['adresse'];
+                    $num = $_POST['num'];
+                    $cp = $_POST['cp'];
+                    $commune = $_POST['commune'];
+               ?>
+                <p> <input type="hidden" name="nom" value="<?=$nom;?>"><input type="hidden" name="prenom" value="<?=$prenom;?>"><?=$nom;?> <?=$prenom;?></p>
+                <p> <input type="hidden" name="email" value="<?=$email;?>"><?=$email;?></p>
+                <p> <input type="hidden" name="tel" value="<?=$tel;?>"><?=$tel;?></p>
+                <p> <input type="hidden" name="adresse" value="<?=$adresse;?>"><?=$adresse;?> <input type="hidden" name="num" value="<?=$num;?>"><?=$num;?><br>
+                    <input type="hidden" name="cp" value="<?=$cp;?>"><?=$cp;?> <input type="hidden" name="commune" value="<?=$commune;?>"><?=$commune ;?></p>
+    <h4>Résumer de la commande</h4>
+    <table class="col-6 table-light mx-auto">
+                           <tr class="table table-secondary">
+                               <th class="col-4">Libellé</th>
+                               <th class="col-2">Quantité</th>
                            </tr>
     <?php
 	if (creationPanier())
@@ -107,9 +116,9 @@ if (!$erreur){
 			for ($i=0 ;$i < $nbArticles ; $i++)
 			{
 				?>
-                           <tr class="text-left">
-                               <td><input type="hidden" name="libelle" value="<?=htmlspecialchars($_SESSION['panier']['libelleProduit'][$i]);?>"><?=htmlspecialchars($_SESSION['panier']['libelleProduit'][$i]);?></td>
-                               <td><input type="hidden" name="quantite" value="<?=htmlspecialchars($_SESSION['panier']['qteProduit'][$i]);?>"> <?=htmlspecialchars($_SESSION['panier']['qteProduit'][$i]);?></td>
+                           <tr class="table text-left">
+                               <td class="col-4"><input type="hidden" name="libelle" value="<?=htmlspecialchars($_SESSION['panier']['libelleProduit'][$i]);?>"><?=htmlspecialchars($_SESSION['panier']['libelleProduit'][$i]);?></td>
+                               <td class="col-2"><input type="hidden" name="quantite" value="<?=htmlspecialchars($_SESSION['panier']['qteProduit'][$i]);?>"> <?=htmlspecialchars($_SESSION['panier']['qteProduit'][$i]);?></td>
                             </tr>
                                 
 				<?php
@@ -121,11 +130,18 @@ if (!$erreur){
                                  </td>
                             </tr>
                         </table>
-                        <input type="submit" class="btn btn-light" value="Envoyer">
+                        <input type="submit" class="btn btn-light mt-2" value="Envoyer">
            </form>
           </div>
-           </div>
        </div>
+        </div>
+<div class="container">
+    <footer class="col-xs-12">
+        <?php
+          include 'footer.php';  
+        ?>
+    </footer>
+</div>
 <script src="../assets/js/jquery.js"></script>
 <script src="../assets/js/popper.min.js"></script> 
 <script src="../assets/js/bootstrap.min.js"></script>
