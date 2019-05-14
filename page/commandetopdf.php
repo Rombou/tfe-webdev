@@ -88,21 +88,6 @@
         ?>
     </footer>
 </div>
-<script type="text/javascript">
-    var pdfdoc = new jsPDF();
-    var specialElementHandlers = {
-            "#ignoreContent": function(element, renderer) {
-        return true;
-        }
-    };
-    $(document).ready(function(){
-        $('#gpdf').click(function(){
-        pdfdoc.fromHTML($("#PDFcontent").html(), 10, 10, {‘width’: 110, ‘elementHandlers’: specialElementHandlers
-
-    });
-pdfdoc.save("commande.pdf");
-    });});
-</script>
 <script src="../assets/js/jquery.js"></script>
 <script src="../assets/js/popper.min.js"></script> 
 <script src="../assets/js/bootstrap.min.js"></script>
