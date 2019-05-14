@@ -55,7 +55,7 @@
                                 {
                                     if ($mdp == $resultat['password']) {
                                         ?> 
-                                        <form action="commande.php" method="post">
+                                        <form action="commandetopdf.php" method="post">
                                          <input type="hidden" name="nom" value="<?=$resultat['nom_ut'];?>"><input type="hidden" name="prenom" value="<?=$resultat['prenom'];?>">
                                         <input type="hidden" name="email" value="<?=$resultat['email'];?>">
                                             <input type="hidden" name="tel" value="<?=$resultat['telephone'];?>">

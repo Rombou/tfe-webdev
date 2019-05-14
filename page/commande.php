@@ -74,36 +74,41 @@ if (!$erreur){
     </style>
 </head>
 <body>
-<div class="container">
+  <div class="container">
     <header class="col-xs-12 mt-5 pull-right">
-            <img src="../assets/image/logo.png" width="100%" class="header">
-            <div class="text-center text-uppercase pb-1 pt-3" style="background-color : #fafc3a;">
-                <p>Votre solution pour la livraison de graviers, sables, bêton, sables stabilisés,...</p>
-            </div>
+        <img src="../assets/image/logo.png" width="100%" class="header">
+        <div class="text-center text-uppercase pb-1 pt-3" style="background-color : #fafc3a;">
+            <p>Votre solution pour la livraison de graviers, sables, béton, sables stabilisés,...</p>
+        </div>
     </header>
+    <div class="mx auto">
+        <?php
+          include 'banner.php';  
+        ?>
+    </div>
 </div>
    <div class="container">
        <div class="text-center py-2 content">
            <div class="container">
-            <form action="commandetopdf.php" action="post">
-            <h4>Adresse du destinataire</h4>
-               <?php
-                    $nom = $_POST['nom'];
-                    $prenom = $_POST['prenom'];
-                    $email = $_POST['email'];
-                    $tel = $_POST['tel'];
-                    $adresse = $_POST['adresse'];
-                    $num = $_POST['num'];
-                    $cp = $_POST['cp'];
-                    $commune = $_POST['commune'];
-               ?>
-                <p> <input type="hidden" name="nom" value="<?=$nom;?>"><input type="hidden" name="prenom" value="<?=$prenom;?>"><?=$nom;?> <?=$prenom;?></p>
-                <p> <input type="hidden" name="email" value="<?=$email;?>"><?=$email;?></p>
-                <p> <input type="hidden" name="tel" value="<?=$tel;?>"><?=$tel;?></p>
-                <p> <input type="hidden" name="adresse" value="<?=$adresse;?>"><?=$adresse;?> <input type="hidden" name="num" value="<?=$num;?>"><?=$num;?><br>
-                    <input type="hidden" name="cp" value="<?=$cp;?>"><?=$cp;?> <input type="hidden" name="commune" value="<?=$commune;?>"><?=$commune ;?></p>
-    <h4>Résumer de la commande</h4>
-    <table class="col-6 table-light mx-auto">
+           <nav aria-label="breadcrumb">
+                      <ol class="breadcrumb bg-light">
+                        <li class="breadcrumb-item">Gravissime</li>
+                        <li class="breadcrumb-item active">Commande</li>
+                      </ol>
+                </nav>
+            <div id=”PDFcontent“>
+                  <div class="header mb-2">
+                      <img src="logo.png" alt="">
+                  </div>
+                  <div class="contenu mb-2">
+                      <h4>Adresse du destinataire</h4>
+                        <p><?=$_POST['nom'] ;?> <?=$_POST['prenom'] ;?></p>
+                        <p><?=$_POST['email'] ;?> </p>
+                        <p><?=$_POST['tel'] ;?> </p>
+                        <p><?=$_POST['adresse'] ;?> <?=$_POST['num'] ;?> <br>
+                        <?=$_POST['cp'] ;?> <?=$_POST['commune'] ;?> </p>
+                      <h4>Résumer de la commande</h4>
+                          <table class="col-6 table-light mx-auto">
                            <tr class="table table-secondary">
                                <th class="col-4">Libellé</th>
                                <th class="col-2">Quantité</th>
@@ -116,30 +121,35 @@ if (!$erreur){
 			for ($i=0 ;$i < $nbArticles ; $i++)
 			{
 				?>
-                           <tr class="table text-left">
-                               <td class="col-4"><input type="hidden" name="libelle" value="<?=htmlspecialchars($_SESSION['panier']['libelleProduit'][$i]);?>"><?=htmlspecialchars($_SESSION['panier']['libelleProduit'][$i]);?></td>
-                               <td class="col-2"><input type="hidden" name="quantite" value="<?=htmlspecialchars($_SESSION['panier']['qteProduit'][$i]);?>"> <?=htmlspecialchars($_SESSION['panier']['qteProduit'][$i]);?></td>
-                            </tr>
+                          <tr class="table text-left">
+                                <td class="col-4"><?=htmlspecialchars($_SESSION['panier']['libelleProduit'][$i]);?></td>
+                               <td class="col-4"><?=htmlspecialchars($_SESSION['panier']['qteProduit'][$i]);?></td>
+                            </tr> 
                                 
 				<?php
 			         }
 	}  
 	?>
 	<tr class="mx-1 text-center table-secondary">
-                                <td colspan='5' class="bg-light p-2"><input type="hidden" name="total" value="Total : <?=MontantGlobal();?> €"><span>Total : <?=MontantGlobal();?> €</span>
-                                 </td>
+                                <td colspan='2' class="bg-light p-2">Total : <?=MontantGlobal();?> €
+                </td>
                             </tr>
-                        </table>
-                        <input type="submit" class="btn btn-light mt-2" value="Envoyer">
-           </form>
+                          </table>
+                  </div>
+                <div class="footer">
+                       <p>Archipel SPRL - 1380 Lasne - info@gravissime.biz - 0494 44 41 42<br>
+                           TVA : BE 0460 510 864 </p>
+                   </div>
+                </div>  
+                <button id=”gpdf” class="btn btn-light">Envoyer</button>
           </div>
        </div>
         </div>
 <div class="container">
-    <footer class="col-xs-12">
-        <?php
-          include 'footer.php';  
-        ?>
+  <footer>
+   <?php
+     include 'footer.php';  
+   ?>
     </footer>
 </div>
 <script src="../assets/js/jquery.js"></script>
@@ -147,6 +157,7 @@ if (!$erreur){
 <script src="../assets/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="../assets/scripts/mootools.js"></script>
 <script type="text/javascript" src="../assets/scripts/multibox.js"></script>
-<script type="text/javascript" src="../assets/scripts/overlay.js"></script> 
+<script type="text/javascript" src="../assets/scripts/overlay.js"></script>
+<script src=”https://cdnjs.cloudflare.com/ajax/libs/jspdf/1.3.4/jspdf.debug.js”></script> 
 </body>
 </html>
