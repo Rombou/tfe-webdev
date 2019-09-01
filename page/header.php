@@ -1,9 +1,9 @@
-<?php
+ <?php
     try 
         {
             $bdd = new PDO('mysql:host=localhost;
-                            dbname=gravissime;
-                            charset=utf8', 'root', 'root');
+                            dbname=rbourgeois_grav;
+                            charset=utf8', 'rbourgeois_grav', 'W3FM0sScc');
         }
         catch(Exception $e)
         {

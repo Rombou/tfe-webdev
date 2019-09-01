@@ -11,11 +11,6 @@
     <link rel="shortcut icon" href="../assets/image/favicon.ico" type="image/x-icon">
     <link rel="icon" href="../assets/image/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
-    <style type="text/css">
-        a:hover {
-            color: #222;
-        }
-    </style>
 </head>
 <body>
 <div class="container">
@@ -28,16 +23,22 @@
 </div>
 <div class="container">
    <div class="content">
-        <div class="py-2 pt-2">
-            <nav aria-label="breadcrumb">
-                      <ol class="breadcrumb bg-light">
-                          <li class="breadcrumb-item"><a href="../../index.php">Gravissime</a></li>
-                        <li class="breadcrumb-item">Commande</li>
-                      </ol>
-                </nav>
-            <div class="container text-center border col-10 col-md-8 border-secondary mb-2 pb-2">
+       <div class="row">
+            <div class="col-lg-3 col-md-2 col-sm-2 col-xs-2">
                 <?php
-                        include 'header.php';
+                  include 'navigation.php';  
+                ?>
+            </div>
+            <div class="col-lg-9 col-md-10 col-sm-9 my-2">
+                <div class="container">
+                    <nav aria-label="breadcrumb">
+                        <ol class="breadcrumb bg-light">
+                            <li class="breadcrumb-item"><a href="../../index.php">Gravissime</a></li>
+                            <li class="breadcrumb-item">Commande</li>
+                        </ol>
+                    </nav>
+                        <?php
+                           include 'header.php';
                             $login=$_POST['login'];
                             $mdp=$_POST['pass'];
                             $req = $bdd->prepare('SELECT * FROM utilisateur INNER JOIN ville ON vilid=villeid WHERE login= :pseudo');
@@ -45,37 +46,119 @@
                                 'pseudo' => $login));
                             $resultat = $req->fetch();
                             if ($login != $resultat['login'])
-                                {
-                                    echo 'Mauvais identifiant !';
-                                    ?>
-                                    <p class="m-2"><a href="panier.php" class="m-1 btn btn-light">Réessayer</a><a href="connexion_oubli.php" class="m-1 btn btn-light">Login oublié ?</a></p>
-                                    <?php
-                                }
-                                else
-                                {
-                                    if ($mdp == $resultat['password']) {
-                                        ?> 
-                                        <form action="commande.php" method="post">
-                                         <input type="hidden" name="nom" value="<?=$resultat['nom_ut'];?>"><input type="hidden" name="prenom" value="<?=$resultat['prenom'];?>">
-                                        <input type="hidden" name="email" value="<?=$resultat['email'];?>">
-                                            <input type="hidden" name="tel" value="<?=$resultat['telephone'];?>">
-                                            <input type="hidden" name="adresse" value="<?=$resultat['adresse'];?>"> <input type="hidden" name="num" value="<?=$resultat['numero'];?>">
-                                            <input type="hidden" name="cp" value="<?=$resultat['cp'];?>"> <input type="hidden" name="commune" value="<?=$resultat['commune'];?>">
-                                        <p> Bonjour <?=$resultat['nom_ut'];?> <?=$resultat['prenom'];?>, voulez-vous continuer ?</p>
-                                        <a href="panier.php" class="btn btn-light col-2">Non</a>
-                                        <input class="btn btn-light col-2" type="submit" value="Oui">
-                                        </form>
-                                        <?php
-                                    }
-                                    else {
-                                        echo 'Mauvais mot de passe !';
-                                        ?>
-                                        <p class="m-2"><a href="panier.php" class="m-1 btn btn-light">Réessayer</a><a href="connexion_oubli.php" class="m-1 btn btn-light">Mot de passe oublié ?</a></p>
-                                        <?php
-                                    }
-                                }
-                ?>
-            </div>
+                                { 
+                            ?>
+                            <form action="connexion.php" method="post" id="connexion" name="inscription" class="needs-validation" novalidate>
+                                <fieldset>
+                                    <legend class="text-center">Se connecter</legend>
+                                    <div class="col-12">
+                                       <div class="form-group row">
+                                            <label class="col-lg-3 col-md-4 col-form-label" for="login">Identifiant :</label>
+                                            <div class="col-lg-9 col-md-8">
+                                                <input class="form-control border-danger" placeholder="Login" name="login" id="login" type="text" required>
+                                                <legend class="text-danger">Mauvais indentifiant</legend>
+                                                <span class="valid-feedback">
+                                                    Cela semble correct !
+                                                </span>
+                                                <span class="invalid-feedback">
+                                                  Champs requis.
+                                                </span>
+                                           </div>
+                                        </div>
+                                        <div class="form-group row">
+                                            <label class="col-lg-3 col-md-4 col-form-label" for="passwrd">Mot de passe :</label>
+                                            <div class="col-lg-9 col-md-8">
+                                                <input class="form-control border-warning" name="pass" id="pass" type="password" required>
+                                                <small>Merci de réinsérer votre mots de passe</small>
+                                                <span class="valid-feedback">
+                                                    Cela semble correct !
+                                                </span>
+                                                <span class="invalid-feedback">
+                                                  Champs requis.
+                                                </span>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </fieldset>
+                                    <div class="mt-3 form-group text-center">
+                                           <a class="btn btn-light col-4 mx-2" href="connexion_oubli.php">Login/mot de passe oublié ?</a>
+                                            <input class="col-4 btn btn-light mx-2" name="submit" id="submit" type="submit" value="Se connecter">
+                                    </div>
+                            </form>
+                    
+                                            <?php
+                                        }
+                                        else
+                                        {
+                                            if ($mdp != $resultat['password']) {
+                                                ?> 
+                                        <form action="connexion.php" method="post" id="connexion" name="inscription" class="needs-validation" novalidate>
+                                            <fieldset>
+                                                <legend class="text-center">Se connecter</legend>
+                                                <div class="col-12">
+                                                    <div class="form-group row">
+                                                        <label class="col-lg-3 col-md-4 col-form-label" for="login">Identifiant :</label>
+                                                        <div class="col-lg-9 col-md-8">
+                                                            <input class="form-control" name="login" id="login" type="text" value="<?=$login;?>" readonly>
+                                                        </div>
+                                                    </div>
+                                                    <div class="form-group row">
+                                                        <label class="col-lg-3 col-md-4 col-form-label" for="passwrd">Mot de passe :</label>
+                                                        <div class="col-lg-9 col-md-8">
+                                                            <input class="form-control border-danger" name="pass" id="pass" type="password" required>
+                                                            <legend class="text-danger">Mauvais mot de passe</legend>
+                                                            <span class="valid-feedback">
+                                                                Cela semble correct !
+                                                            </span>
+                                                            <span class="invalid-feedback">
+                                                              Champs requis.
+                                                            </span>
+                                                        </div>
+                                                    </div>
+                                                </div>
+                                                </fieldset>
+                                                <div class="mt-3 form-group text-center">
+                                                       <a class="col-4 btn btn-light mx-2" href="connexion_oubli.php">Login/mot de passe oublié ?</a>
+                                                        <input class="col-4 btn btn-light mx-2" name="submit" id="submit" type="submit" value="Se connecter">
+                                                    </div>
+                                            </form>
+                                                <?php
+                                            }
+                                            else {
+                                                ?>
+                                                <div class="text-center mb-2 pb-2">
+                                                <form action="commande.php" method="post" class="needs-validation" novalidate>
+                                                    <fieldset>
+                                                        <legend class="text-center">Se connecter</legend>
+                                                         <input type="hidden" name="nom" value="<?=$resultat['nom_ut'];?>"><input type="hidden" name="prenom" value="<?=$resultat['prenom'];?>">
+                                                        <input type="hidden" name="email" value="<?=$resultat['email'];?>">
+                                                        <input type="hidden" name="tel" value="<?=$resultat['telephone'];?>">
+                                                        <input type="hidden" name="adresse" value="<?=$resultat['adresse'];?>"> <input type="hidden" name="num" value="<?=$resultat['numero'];?>">
+                                                        <input type="hidden" name="cp" value="<?=$resultat['cp'];?>"> <input type="hidden" name="commune" value="<?=$resultat['commune'];?>">
+                                                        <p> Bonjour <?=$resultat['nom_ut'];?> <?=$resultat['prenom'];?>, voulez-vous continuer ?</p>
+                                                        <p>
+                                                        <input class="form-check-input" type="checkbox" id="conditions" required>
+                                                        <label for="conditions">En continuant, vous acceptez nos conditions de vente.</label>
+                                                        <span class="valid-feedback">
+                                                            Cela semble correct !
+                                                        </span>
+                                                       <span class="invalid-feedback">
+                                                          Merci de cochez la case pour continuer.
+                                                        </span>
+                                                        </p>
+                                                    </fieldset>
+                                                    <p class="mt-3">
+                                                        <a href="panier.php" class="btn btn-light col-3 mx-1">Non</a>
+                                                        <input class="btn btn-light col-3 mx-1" type="submit" value="Oui">
+                                                    </p>
+                                                </form>
+                                            </div>
+                                                <?php
+                                            }
+                                        }
+                        ?>
+               </div>
+           </div>
        </div>
     </div>
 </div>
@@ -86,7 +169,8 @@
         ?>
     </footer>
 </div>
-<script src="../assets/js/jquery.js"></script>
+<script src="../assets/js/form.js"> </script>
+<script src="../assets/js/jquery.min.js"></script>
 <script src="../assets/js/popper.min.js"></script> 
 <script src="../assets/js/bootstrap.min.js"></script> 
 </body>

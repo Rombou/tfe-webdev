@@ -35,6 +35,7 @@
                 ?>
             </div>
             <div class="col-lg-9 col-md-10 col-sm-9 mt-2">
+               <div class="container">
                 <nav aria-label="breadcrumb">
                       <ol class="breadcrumb bg-light">
                         <li class="breadcrumb-item">Gravissime</li>
@@ -55,13 +56,13 @@
                         <tbody>
                             <?php
                               include 'header.php';
-                                $reponse = $bdd->query('SELECT proid,nom,prix FROM produit WHERE cat_id=5 and typ_id=9');
+                                $reponse = $bdd->query('SELECT proid,nom,prix FROM produits WHERE cat_id=14');
                                 $proid=$donnees['proid'];
                                 while ($donnees = $reponse->fetch())
                                 {
                                     ?>
                                     <tr>
-                                        <form action="panier.php?action=ajout&amp;l&amp;q&amp;p" method="post">
+                                        <form action="ajout_panier.php?action=ajout&amp;l&amp;q&amp;p" method="post">
                                         <td><?=$donnees['nom']?><input type='hidden' name='nom' value="<?=$donnees['nom']?>"></td>
                                         <td><?=$donnees['prix']?><input type="hidden" name='prix' value="<?=$donnees['prix'];?>"><td/>
                                         <td> 
@@ -97,7 +98,7 @@
                                                </p>
                                                <div class="container">
                                                 <p class="form-group row text-center">
-                                                    <input class="form-control col-3" type="number" min="1" max="99" placeholder="1" name="nombre">
+                                                    <input class="form-control col-3" type="number" min="1" max="99" placeholder="1" name="nombre" required>
                                                     <input class="form-control col-3" type='submit' value='+'>
                                                </p>
                                                </div> 
@@ -111,6 +112,7 @@
                             ?>
                        </tbody>
                     </table>
+                </div>
                 </div>
             </div>
         </div> 
@@ -130,11 +132,8 @@
         ?>
     </footer>
 </div>
-<script src="../assets/js/jquery.js"></script>
+<script src="../assets/js/jquery.min.js"></script>
 <script src="../assets/js/popper.min.js"></script> 
-<script src="../assets/js/bootstrap.min.js"></script> 
-<script type="text/javascript" src="../assets/scripts/mootools.js"></script>
-<script type="text/javascript" src="../assets/scripts/multibox.js"></script>
-<script type="text/javascript" src="../assets/scripts/overlay.js"></script>   
+<script src="../assets/js/bootstrap.min.js"></script>    
 </body>
 </html>

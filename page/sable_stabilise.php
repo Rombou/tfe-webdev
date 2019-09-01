@@ -10,59 +10,7 @@
     <link rel="stylesheet" type="text/css" href="../assets/css/styles.css">
     <link rel="shortcut icon" href="../assets/image/favicon.ico" type="image/x-icon">
     <link rel="icon" href="../assets/image/favicon.ico" type="image/x-icon">
-    <style type="text/css">
-        .img_hover{
-		position: relative;
-        height: auto;
-        overflow: hidden;
-	}
-	.img_hover:hover .caption{
-		opacity: 1;
-		transform: translateY(-35px);
-		-webkit-transform:translateY(-35px);
-		-moz-transform:translateY(-35px);
-		-ms-transform:translateY(-35px);
-		-o-transform:translateY(-35px);
-	}
-    .img_hover:hover .caption-text{
-        color: #222;
-        }
-	.img_hover img{
-		z-index: 4;
-	}
-	.caption{
-        opacity: 0.5;
-		position: absolute;
-		bottom:25px;
-		-webkit-transition:all 0.3s ease-in-out;
-		-moz-transition:all 0.3s ease-in-out;
-		-o-transition:all 0.3s ease-in-out;
-		-ms-transition:all 0.3s ease-in-out;
-		transition:all 0.3s ease-in-out;
-		width: 100%;
-	}
-	.caption-text{
-        background-color: #fafc3a;
-		z-index: 10;
-		color: #777;
-		position: absolute;
-		text-align: center;
-		top:0px;
-		width: 100%;
-        padding: 0.5em;
-        height: 60px;
-	}
-    .text {
-        background-color: #fafc3a;
-		color: #222;
-		position: absolute;
-		text-align: center;
-		width: 100%;
-        padding: 0.5em;
-        height: 60px;
-        bottom: 0px;
-        }
-    </style>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
 </head>
 <body>
 <div class="container">
@@ -201,15 +149,12 @@
 <div class="container">
     <footer class="col-xs-12">
         <?php
-          include '../footer.php';  
+          include 'footer.php';  
         ?>
     </footer>
 </div>
-<script src="../assets/js/jquery.js"></script>
+<script src="../assets/js/jquery.min.js"></script>
 <script src="../assets/js/popper.min.js"></script> 
-<script src="../assets/js/bootstrap.min.js"></script> 
-<script type="text/javascript" src="../assets/scripts/mootools.js"></script>
-<script type="text/javascript" src="../assets/scripts/multibox.js"></script>
-<script type="text/javascript" src="../assets/scripts/overlay.js"></script>   
+<script src="../assets/js/bootstrap.min.js"></script>  
 </body>
 </html>

@@ -10,6 +10,7 @@
     <link rel="stylesheet" type="text/css" href="../assets/css/styles.css">
     <link rel="shortcut icon" href="../assets/image/favicon.ico" type="image/x-icon">
     <link rel="icon" href="../assets/image/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
 </head>
 <body>
 <div class="container">
@@ -21,7 +22,14 @@
     </header>
 </div>
 <div class="container">
-    <div class="col-12 py-2 content">
+    <div class="col-12 content">
+       <div class="row">
+            <div class="col-lg-3 col-md-2 col-sm-2 col-xs-2">
+                <?php
+                  include 'navigation.php';  
+                ?>
+            </div>
+            <div class="col-lg-9 col-md-10 my-1">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb bg-light">
                 <li class="breadcrumb-item">Gravissime</li>
@@ -30,245 +38,161 @@
         </nav>
          <?php
     include 'header.php';
-    $nom = $_POST['name'];
-    $prenom = $_POST['first_name'];
-    $tel = $_POST['telephone'];
     $email = $_POST['email'];
     $login = $_POST['login'];
     $mdp = $_POST['password'];
     $confirm = $_POST['confirmpassword'];
-    $adresse = $_POST['adresse'];
-    $numero = $_POST['numero'];
-    $ville = $_POST['ville'];
-    $reponse = $bdd->query('SELECT email, login FROM utilisateur');
-    $donnees = $reponse->fetch();
-    if ($donnees['email'] == $email) {
-        header ('location:connexion_oubli.php');
-    }
-    else if ($mdp != $confirm) {
-            ?>
-            <form action="enregistrement.php" method="post" id="inscription" class="container mb-3" name="inscription">
-                        <fieldset class="mb-3">
-                            <legend class="text-center">Personne de contact</legend>
-                            <div class="form-group container">
-                               <div class="row">
-                                    <label for="colFormLabel" class="col-lg-3 col-md-5 col-form-label">Nom :</label>
-                                    <span class="col-lg-7 col-md-6 ml-2">
-                                        <input name="name" type="text" class="form-control" id="colFormLabel" value="<?= $nom; ?>" readonly>
-                                   </span>
-                                </div>
-                            </div>
-                            <div class="form-group container">
-                               <div class="row">
-                                    <label for="colFormLabel" class="col-lg-3 col-md-5 col-form-label">Prénom :</label>
-                                    <span class="col-lg-7 col-md-6 ml-2">
-                                        <input name="first_name"  type="text" class="form-control" id="colFormLabel" value="<?= $prenom;?>" readonly>
-                                   </span>
-                                </div>
-                            </div>
-                            <div class="form-group container">
-                               <div class="row">
-                                    <label for="colFormLabel" class="col-lg-3 col-md-5 col-form-label">Email :</label>
-                                    <span class="col-lg-7 col-md-6 ml-2">
-                                        <input name="email" aria-describedby="emailHelp" value="<?=$email;?>" type="email" class="form-control" id="colFormLabel" readonly>
-                                   </span>
-                                </div>
-                            </div>
-                        </fieldset>
-                        <fieldset class="mb-3">
-                            <legend class="text-center">Adresse de livraison</legend>
-                                <div class="form-group container">
-                                    <div class="row">
-                                        <label for="colFormLabel" class="col-lg-3 col-md-5 col-form-label">Téléphone :</label>
-                                        <span class="col-lg-7 col-md-6 ml-2">
-                                            <input name="telephone" type="tel" class="form-control" value="<?=$tel;?>" id="colFormLabel" readonly>
+    $password = md5($mdp);
+    $req = $bdd->prepare('SELECT * FROM utilisateur WHERE email = :mail');
+    $req->execute(array(
+        'mail'=> $email));
+    $resultat = $req->fetch();    
+        if ($email != $resultat['email']) {
+            ?> 
+            <form action="enregistrement.php" method="post" id="inscription" class="needs-validation" name="inscription" novalidate>
+                    <fieldset class="col-12 mb-3">
+                        <legend class="text-center">Login</legend>
+                        <div class="form-group row">
+                                <label for="colFormLabel" class="col-lg-3 col-md-4 col-form-label">Email :</label>
+                                <div class="col-lg-9 col-md-8">
+                                    <input name="email" aria-describedby="emailHelp" class="form-control border-danger" id="colFormLabel" required>
+                                    <div class="text-danger">Mauvais email !</div>
+                                        <span class="valid-feedback">
+                                            Cela semble correct !
                                         </span>
-                                    </div>
-                                </div>  
-                            <div class="form-group container">
-                               <div class="row">
-                                    <label for="colFormLabel" class="col-lg-3 col-md-5 col-form-label">Adresse :</label>
-                                    <span class="col-lg-7 col-md-6 ml-2">
-                                        <input name="adresse" type="text" class="form-control" value="<?=$adresse;?>" id="colFormLabel" readonly>
-                                   </span>
+                                        <span class="invalid-feedback">
+                                          Champs requis.
+                                        </span>
+                               </div>
+                        </div>
+                        <div class="form-group row">
+                                <label for="colFormLabel" class="col-lg-3 col-md-4 col-form-label">Login :</label>
+                                <div class="col-lg-9 col-md-8">
+                                    <input name="login" type="text" value="<?=$_POST['login'];?>" class="form-control" id="colFormLabel" readonly>
                                 </div>
-                            </div>
-                            <div class="form-group container">
-                               <div class="row">
-                                    <label for="colFormLabel" class="col-lg-3 col-md-5 col-form-label">Numéro :</label>
-                                    <div class="col-lg-3 col-md-6 ml-2">
-                                        <input name="numero" type="num" class="form-control" value="<?=$numero;?>" id="colFormLabel" readonly>
-                                   </div>
+                        </div>
+                        <div class="form-group row">
+                                <label for="colFormLabel" class="col-lg-3 col-md-4 col-form-label">Mot de passe :</label>
+                                <div class="col-lg-9 col-md-8">
+                                    <input name="password" type="password" class="form-control" id="colFormLabel" readonly value="<?=$mdp;?>">
+                               </div>
+                        </div>
+                        <div class="form-group row">
+                                <label for="colFormLabel" class="col-lg-3 col-md-4 col-form-label">Confirmation :</label>
+                                <div class="col-lg-9 col-md-8">
+                                    <input name="confirmpassword" type="password" class="form-control" id="colFormLabel" readonly value="<?=$confirm;?>">
+                               </div>
+                        </div>
+                    </fieldset>  
+                    <div class="text-center">
+                        <input type="submit" value="Enregistrer" class="col-3 btn btn-light">
+                    </div>
+                </form>
+                        <?php
+        }
+        else if ($resultat['login'] != $login){
+            ?>
+            <form action="enregistrement.php" method="post" id="inscription" class="needs-validation" name="inscription" novalidate>
+                    <fieldset class="col-12 mb-3">
+                        <legend class="text-center">Login</legend>
+                        <div class="form-group row">
+                                <label for="colFormLabel" class="col-lg-3 col-md-4 col-form-label">Email :</label>
+                                <div class="col-lg-9 col-md-8">
+                                    <input name="email" value="<?=$_POST['email'];?>" aria-describedby="emailHelp" class="form-control" id="colFormLabel" readonly>
+                               </div>
+                        </div>
+                        <div class="form-group row">
+                                <label for="colFormLabel" class="col-lg-3 col-md-4 col-form-label">Confirmation login :</label>
+                                <div class="col-lg-9 col-md-8">
+                                    <input name="login" type="text" class="form-control border-danger" id="colFormLabel" required>
+                                    <div class="text-danger">Mauvaise login !</div>
+                                        <span class="valid-feedback">
+                                            Cela semble correct !
+                                        </span>
+                                        <span class="invalid-feedback">
+                                          Champs requis.
+                                        </span>
                                 </div>
-                            </div>
-                            <div class="form-group container">
-                               <div class="row">
-                                    <label for="colFormLabel" class="col-lg-3 col-md-5 col-form-label">Commune :</label>
-                                    <div class="col-lg-7 col-md-5 ml-2">
-                                        <select name="ville" class="form-control" id="colFormLabel" disabled>
-                                           <?php 
-                                            $reponse = $bdd->query('SELECT * FROM ville WHERE villeid='.$ville); 
-                                                    while ( $donnees = $reponse->fetch()) {
-                                                        ?>
-                                                        <option value='<?= $donnees["villeid"];?>'><?= $donnees['cp'].' '.$donnees["nom"];?> </option>
-                                                         <?php
-                                                    }
-                                            ?>
-                                        </select>
-                                   </div>
-                                </div>
-                            </div>
-                        </fieldset>
-                        <fieldset class="mb-3">
-                            <legend class="text-center">Login</legend>
-                            <div class="form-group container">
-                               <div class="row">
-                                    <label for="colFormLabel" class="col-lg-3 col-md-5 col-form-label">Login :</label>
-                                    <span class="col-lg-7 col-md-6 ml-2">
-                                        <input name="login" type="text" class="form-control" value="<?=$login;?>" id="colFormLabel" readonly>
-                                   </span>
-                                </div>
-                            </div>
-                            <div class="form-group container">
-                               <div class="row">
-                                    <label for="colFormLabel" class="col-lg-3 col-md-5 col-form-label">Mot de passe :</label>
-                                    <span class="col-lg-7 col-md-6 ml-2">
-                                        <input name="password" type="password" class="form-control border-danger" id="colFormLabel" required>
-                                   </span>
-                                </div>
-                            </div>
-                            <div class="form-group container">
-                               <div class="row">
-                                    <label for="colFormLabel" class="col-lg-3 col-md-5 col-form-label">Confirmation :</label>
-                                    <span class="col-lg-7 col-md-6 ml-2">
-                                        <input name="confirmpassword" type="password" class="form-control border-danger" id="colFormLabel" required>
-                                        <legend class="text-danger">* Confirmation incorect</legend>
-                                   </span>
-                                </div>
-                            </div>
-                        </fieldset>  
-                        <center>
-                            <input type="submit" value="Enregistrer" class="btn btn-light">
-                        </center>
-                    </form>
+                        </div>
+                        <div class="form-group row">
+                                <label for="colFormLabel" class="col-lg-3 col-md-4 col-form-label">Mot de passe :</label>
+                                <div class="col-lg-9 col-md-8">
+                                    <input name="password" type="password" class="form-control" id="colFormLabel" readonly value="<?=$mdp;?>">
+                               </div>
+                        </div>
+                        <div class="form-group row">
+                                <label for="colFormLabel" class="col-lg-3 col-md-4 col-form-label">Confirmation :</label>
+                                <div class="col-lg-9 col-md-8">
+                                    <input name="confirmpassword" type="password" class="form-control" id="colFormLabel" readonly value="<?=$confirm;?>">
+                               </div>
+                        </div>
+                    </fieldset>  
+                    <div class="text-center">
+                        <input type="submit" value="Enregistrer" class="col-3 btn btn-light">
+                    </div>
+                </form>
             <?php
         }
-    else if ($login == $donnees['login']) {
-            ?>
-            <form action="enregistrement.php" method="post" id="inscription" class="container mb-3" name="inscription">
-                        <fieldset class="mb-3">
-                            <legend class="text-center">Personne de contact</legend>
-                            <div class="form-group container">
-                               <div class="row">
-                                    <label for="colFormLabel" class="col-lg-3 col-md-5 col-form-label">Nom :</label>
-                                    <span class="col-lg-7 col-md-6 ml-2">
-                                        <input name="name" type="text" class="form-control" value="<?=$nom;?>" id="colFormLabel" readonly>
-                                   </span>
+        else {
+            $id = $resultat['utid'];
+            $nom = $resultat['nom–ut'];
+            $prenom = $resultat['prenom'];
+            
+            if ($mdp != $confirm) {
+                ?>
+                <form action="enregistrement.php" method="post" id="inscription" class="needs-validation" name="inscription" novalidate>
+                    <fieldset class="col-12 mb-3">
+                        <legend class="text-center">Login</legend>
+                        <div class="form-group row">
+                                <label for="colFormLabel" class="col-lg-3 col-md-4 col-form-label">Email :</label>
+                                <div class="col-lg-9 col-md-8">
+                                    <input name="email" value="<?=$_POST['email'];?>" aria-describedby="emailHelp" class="form-control" id="colFormLabel" readonly>
+                               </div>
+                        </div>
+                        <div class="form-group row">
+                                <label for="colFormLabel" class="col-lg-3 col-md-4 col-form-label">Login :</label>
+                                <div class="col-lg-9 col-md-8">
+                                    <input name="login" type="text" value="<?=$_POST['login'];?>" class="form-control" id="colFormLabel" readonly>
                                 </div>
-                            </div>
-                            <div class="form-group container">
-                               <div class="row">
-                                    <label for="colFormLabel" class="col-lg-3 col-md-5 col-form-label">Prénom :</label>
-                                    <span class="col-lg-7 col-md-6 ml-2">
-                                        <input name="first_name"  type="text" class="form-control" value="<?=$prenom;?>" id="colFormLabel" readonly>
-                                   </span>
-                                </div>
-                            </div>
-                            <div class="form-group container">
-                               <div class="row">
-                                    <label for="colFormLabel" class="col-lg-3 col-md-5 col-form-label">Email :</label>
-                                    <span class="col-lg-7 col-md-6 ml-2">
-                                        <input name="email" aria-describedby="emailHelp" type="email" class="form-control" id="colFormLabel" readonly value="<?=$email;?>">
-                                   </span>
-                                </div>
-                            </div>
-                        </fieldset>
-                        <fieldset class="mb-3">
-                            <legend class="text-center">Adresse de livraison</legend>
-                                <div class="form-group container">
-                                    <div class="row">
-                                        <label for="colFormLabel" class="col-lg-3 col-md-5 col-form-label">Téléphone :</label>
-                                        <span class="col-lg-7 col-md-6 ml-2">
-                                            <input name="telephone" type="tel" class="form-control" id="colFormLabel" readonly value="<?=$tel;?>">
+                        </div>
+                        <div class="form-group row">
+                                <label for="colFormLabel" class="col-lg-3 col-md-4 col-form-label">Mot de passe :</label>
+                                <div class="col-lg-9 col-md-8">
+                                    <input name="password" type="password" class="form-control" id="colFormLabel" value="<?=$mdp;?>" readonly>
+                               </div>
+                        </div>
+                        <div class="form-group row">
+                                <label for="colFormLabel" class="col-lg-3 col-md-4 col-form-label">Confirmation :</label>
+                                <div class="col-lg-9 col-md-8">
+                                    <input name="confirmpassword" type="password" class="form-control border-danger" id="colFormLabel" required>
+                                       <div class="text-danger">Confirmation incorect.</div>
+                                        <span class="valid-feedback">
+                                            Cela semble correct !
                                         </span>
-                                    </div>
-                                </div>  
-                            <div class="form-group container">
-                               <div class="row">
-                                    <label for="colFormLabel" class="col-lg-3 col-md-5 col-form-label">Adresse :</label>
-                                    <span class="col-lg-7 col-md-6 ml-2">
-                                        <input name="adresse" type="text" class="form-control" id="colFormLabel" value="<?=$adresse;?>" readonly>
-                                   </span>
-                                </div>
-                            </div>
-                            <div class="form-group container">
-                               <div class="row">
-                                    <label for="colFormLabel" class="col-lg-3 col-md-5 col-form-label">Numéro :</label>
-                                    <div class="col-lg-3 col-md-6 ml-2">
-                                        <input name="numero" type="num" class="form-control" id="colFormLabel" value="<?=$numero;?>" readonly>
-                                   </div>
-                                </div>
-                            </div>
-                            <div class="form-group container">
-                               <div class="row">
-                                    <label for="colFormLabel" class="col-lg-3 col-md-5 col-form-label">Commune :</label>
-                                    <div class="col-lg-7 col-md-5 ml-2">
-                                        <select name="ville" class="form-control" id="colFormLabel" disabled>
-                                           <?php 
-                                            $reponse = $bdd->query('SELECT * FROM ville WHERE villeid='.$ville); 
-                                                    while ( $donnees = $reponse->fetch()) {
-                                                        ?>
-                                                        <option value='<?= $donnees["villeid"];?>'><?= $donnees['cp'].' '.$donnees["nom"];?> </option> <?php
-                                                    }
-                                            ?>
-                                        </select>
-                                   </div>
-                                </div>
-                            </div>
-                        </fieldset>
-                        <fieldset class="mb-3">
-                            <legend class="text-center">Login</legend>
-                            <div class="form-group container">
-                               <div class="row">
-                                    <label for="colFormLabel" class="col-lg-3 col-md-5 col-form-label">Login :</label>
-                                    <span class="col-lg-7 col-md-6 ml-2">
-                                        <input name="login" type="text" class="form-control border-danger" id="colFormLabel" required>
-                                        <legend class="text-danger">* Login existant</legend>
-                                   </span>
-                                </div>
-                            </div>
-                            <div class="form-group container">
-                               <div class="row">
-                                    <label for="colFormLabel" class="col-lg-3 col-md-5 col-form-label">Mot de passe :</label>
-                                    <span class="col-lg-7 col-md-6 ml-2">
-                                        <input name="password" type="password" class="form-control" id="colFormLabel" readonly value="<?=$mdp;?>">
-                                   </span>
-                                </div>
-                            </div>
-                            <div class="form-group container">
-                               <div class="row">
-                                    <label for="colFormLabel" class="col-lg-3 col-md-5 col-form-label">Confirmation :</label>
-                                    <span class="col-lg-7 col-md-6 ml-2">
-                                        <input name="confirmpassword" type="password" class="form-control" id="colFormLabel" readonly value="<?=$confirm;?>">
-                                   </span>
-                                </div>
-                            </div>
-                        </fieldset>  
-                        <center>
-                            <input type="submit" value="Enregistrer" class="btn btn-light">
-                        </center>
-                    </form>
-            <?php
+                                        <span class="invalid-feedback">
+                                          Champs requis.
+                                        </span>
+                               </div>
+                        </div>
+                    </fieldset>  
+                    <div class="text-center">
+                        <input type="submit" value="Enregistrer" class="col-3 btn btn-light">
+                    </div>
+                </form>
+                <?php
+            }
+            else {
+            $requete = "UPDATE `utilisateur` SET `password` = '$password'  WHERE `utilisateur`.`utid` = $id";
+            $bdd->exec($requete);
+                        ?>
+                        <p>Bienvenue <?=$nom;?> <?=$prenom;?>.</p>
+                        <p class="mt-2"><a href="../index.php" class="btn btn-light">Retour</a></p>
+                       <?php
+            }
         }
-    else {
-        $requete = "INSERT INTO utilisateur ( `nom_ut`, `prenom`, `email`, `telephone`, `adresse`, `numero`, `vilid`, `login`, `password`) VALUES ('$nom','$prenom','$email','$tel', '$adresse', '$numero', '$ville', '$login', '$mdp')";
-        $bdd->exec($requete);
-        echo "Bienvenue $nom $prenom, vous êtes inscrit.";
-                    ?>
-                    <p class="mt-2"><a href="../index.php" class="btn btn-light">Retour</a></p>
-                   <?php
-                }
-        ?>    
+    ?>  
+           </div>
+        </div>  
     </div>
 </div>
 <div class="container">
@@ -278,11 +202,9 @@
         ?>
     </footer>
 </div>
-<script src="assets/js/jquery.js"></script>
-<script src="assets/js/popper.min.js"></script> 
-<script src="assets/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="assets/scripts/mootools.js"></script>
-<script type="text/javascript" src="assets/scripts/multibox.js"></script>
-<script type="text/javascript" src="assets/scripts/overlay.js"></script>   
+<script src="../assets/js/form.js"></script>
+<script src="../assets/js/jquery.min.js"></script>
+<script src="../assets/js/popper.min.js"></script> 
+<script src="../assets/js/bootstrap.min.js"></script> 
 </body>
 </html>

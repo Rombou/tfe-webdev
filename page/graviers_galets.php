@@ -35,6 +35,7 @@
                 ?>
             </div>
             <div class="col-lg-9 col-md-10 col-sm-9 mt-2">
+               <div class="container">
                 <nav aria-label="breadcrumb">
                       <ol class="breadcrumb">
                         <li class="breadcrumb-item">Gravissime</li>
@@ -44,30 +45,30 @@
                       </ol>
                 </nav>
                 <div class="d-none d-sm-block">
-                    <table class="table table-hover">
-                       <thead class="bg-light">
+                    <table class="table table-light table-hover">
+                       <thead class="table-secondary">
                             <tr>
-                              <th width="40%">Nom</th>
-                              <th width="30%">Prix htva (21%)</th>
-                              <th></th>
+                              <th>Nom</th>
+                              <th>Prix htva (21%)</th>
+                              <th colspan="2"></th>
                             </tr>
                           </thead>
                         <tbody>
                             <?php
                               include 'header.php';
-                                $reponse = $bdd->query('SELECT proid,nom,prix FROM produit WHERE cat_id=1 and typ_id=5');
+                                $reponse = $bdd->query('SELECT proid,nom,prix FROM produits WHERE cat_id=5');
                                 $proid=$donnees['proid'];
                                 while ($donnees = $reponse->fetch())
                                 {
                                     ?>
                                     <tr>
                                         <form action="panier.php?action=ajout&amp;l&amp;q&amp;p" method="post">
-                                        <td><?=$donnees['nom']?><input type='hidden' name='nom' value="<?=$donnees['nom']?>"></td>
-                                        <td><?=$donnees['prix']?><input type="hidden" name='prix' value="<?=$donnees['prix'];?>"><td/>
-                                        <td> 
-                                                <input class="btn btn-light col-md-12 col-lg-4"type="number" min="1" max="99" value="1" name="nombre">
-                                                <input class="btn btn-light col-md-12 col-lg-4" type='submit' value='+'>
-                                        </td>
+                                            <td><?=$donnees['nom']?><input type='hidden' name='nom' value="<?=$donnees['nom']?>"></td>
+                                            <td><?=$donnees['prix']?><input type="hidden" name='prix' value="<?=$donnees['prix'];?>"></td>
+                                            <td><input class="form-control"type="number" min="1" max="99" value="1" name="nombre" required></td>
+                                            <td> 
+                                                <input class="btn btn-light" value="+" type='submit' title="Ajouter au panier">
+                                            </td>
                                          </form>
                                     </tr>
                                     <?php
@@ -78,7 +79,7 @@
                     </table>
                 </div>
                 <div class="d-xs-block d-sm-none">
-                   <table class="table table-striped">
+                   <table class="table table-light table-striped">
                         <tbody>
                     <?php
                               include 'header.php';
@@ -90,14 +91,14 @@
                                     <tr>
                                           <td>
                                           <table>
-                                           <form action="panier.php?action=ajout&amp;l&amp;q&amp;p" method="post">
+                                           <form action="ajout_panier.php?action=ajout&amp;l&amp;q&amp;p" method="post">
                                                   <p> <b>Nom :</b> <?=$donnees['nom']?><input type='hidden'  name='nom' value="<?=$donnees['nom']?>"></p>
                                                      <p>
                                                       <b>Prix htva (21%) : </b> <?=$donnees['prix']?><input type="hidden" name='prix' value="<?=$donnees['prix'];?>">
                                                </p>
                                                 <div class="container">
                                                 <p class="form-group row text-center">
-                                                    <input class="form-control col-3" type="number" min="1" max="99" placeholder="1" name="nombre">
+                                                    <input class="form-control col-3" type="number" min="1" max="99" placeholder="1" name="nombre" required>
                                                     <input class="form-control col-3" type='submit' value='+'>
                                                </p>
                                                </div> 
@@ -112,6 +113,7 @@
                        </tbody>
                     </table>
                 </div>
+                </div>
             </div>
         </div> 
     </div>
@@ -119,15 +121,12 @@
 <div class="container">
     <footer class="col-xs-12">
         <?php
-          include '../footer.php';  
+          include 'footer.php';  
         ?>
     </footer>
 </div>
-<script src="../assets/js/jquery.js"></script>
+<script src="../assets/js/jquery.min.js"></script>
 <script src="../assets/js/popper.min.js"></script> 
-<script src="../assets/js/bootstrap.min.js"></script> 
-<script type="text/javascript" src="../assets/scripts/mootools.js"></script>
-<script type="text/javascript" src="../assets/scripts/multibox.js"></script>
-<script type="text/javascript" src="../assets/scripts/overlay.js"></script>   
+<script src="../assets/js/bootstrap.min.js"></script>  
 </body>
 </html>

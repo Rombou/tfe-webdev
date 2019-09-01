@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Gravissime - Login/mot de passe oublié</title>
+    <title>Gravissime - Inscription</title>
     <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../assets/css/normalize.css">
     <link rel="stylesheet" type="text/css" href="../assets/css/styles.css">
@@ -39,30 +39,28 @@
                 <nav aria-label="breadcrumb">
                       <ol class="breadcrumb bg-light">
                         <li class="breadcrumb-item">Gravissime</li>
-                        <li class="breadcrumb-item active">Login / Mot de passe oublié</li>
+                        <li class="breadcrumb-item active">Inscription</li>
                       </ol>
                 </nav>
                 <div class="mt-2 mb-3">
-                    <form action="forget.php" method="post" class="needs-validation" name="login_perdu" novalidate>
+                   <?php
+                    $email = $_POST['email'];   
+                   ?>
+                    <form action="mail_envoi.php" method="post" class="needs-validation" name="login_perdu" novalidate>
                         <fieldset class="col-12">
                             <legend class="text-center">Vérification adresse mail</legend>
                             <div class="form-group row">
                                     <label for="colFormLabel" class="col-lg-3 col-md-4 col-form-label">Email :</label>
-                                    <div class="col-md-8 col-lg-9">
-                                        <input name="email" placeholder="mail@domaine.com" aria-describedby="emailHelp" type="email" class="form-control" id="colFormLabel" required>
-                                        <span class="valid-feedback">
-                                        Cela semble correct !
-                                        </span>
-                                        <span class="invalid-feedback">
-                                          Champs requis pour une adresse mail.
-                                        </span>
+                                    <div class="col-md-8 col-lg-9" >
+                                        <input name="email" value="<?=$email;?>" aria-describedby="emailHelp" type="email" class="form-control" id="colFormLabel" readonly>
                                    </div>
                             </div>
                         </fieldset>
                         <div class="form-group text-center col-12 mt-3">
-                                    <div class="col-4 mx-auto">
-                                      <input type="submit" class="btn btn-light" value="Envoyer"> 
-                                    </div>
+                                    <p class="mt-3">
+                                        <a href="mail_delete.php" class="btn btn-light col-3 mx-1">Mauvais email</a>
+                                        <input class="btn btn-light col-3 mx-1" type="submit" value="Envoyer">
+                                    </p>
                             </div>
                     </form>
                 </div>

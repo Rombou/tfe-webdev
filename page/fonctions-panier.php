@@ -106,7 +106,6 @@ function supprimerArticle($libelleProduit){
    echo "Un problème est survenu veuillez contacter l'administrateur du site.";
 }
 
-
 /**
  * Montant total du panier
  * @return int
