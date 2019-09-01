@@ -1,34 +1,41 @@
 @import url('https://fonts.googleapis.com/css?family=Open+Sans');
-@media only screen and (max-width: 700px){
+@media only screen and (max-width: 700px) {
     .modal-content {
         width: 100%;
     }
 }
+
 body {
     font-family: 'Open Sans', sans-serif;
     font-size: 12pt;
     color: #222;
-    background: #a9a89d;
-    background-size: cover; 
+    background: #A3AEB7;
+    background-size: cover;
 }
+
 .content {
     background-color: #e8e6e3;
 }
+
 .nav-link {
-	text-align: center; 
+    text-align: center;
 }
+
 .nav-link ul {
-	list-style: inherit;
-    margin:auto;
+    list-style: inherit;
+    margin: auto;
 }
+
 .nav-link li {
     background-color: #f8f9fa;
     list-style: none;
     padding: 0.5em 0;
 }
+
 .nav-link li:hover {
-	background-color: #fafc3a; 
+    background-color: #fafc3a;
 }
+
 .nav-link a {
     text-decoration: none;
     color: #222;
@@ -36,16 +43,53 @@ body {
     text-transform: uppercase;
     display: block;
 }
+
 a {
     color: #222;
 }
-a:hover{
+
+a:hover {
     font-weight: bolder;
 }
+
+li.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+a:hover {color: #222; font-weight: normal;}
+    li.dropdown:hover .dropdown-menu {
+    display: block;
+}
+.navbar-brand a{
+    color: #222;
+    text-transform: uppercase;
+}
+.navbar-brand li:hover {
+        background-color: #fafc3a;
+    }
+    .navbar-brand li.last:hover {
+        background-color: #f8f9fa;
+    }
+    .navbar-brand li.last li:hover {
+        background-color: #fafc3a;
+    }
+    .navbar-brand li.last:hover{
+        background-color: rgba(250,252,58,0.2);
+        color: #222
+    }
+.navbar-brand li:hover a{
+    color: #333;
+    text-decoration: inherit;
+}
+.dropdown-menu {
+	background-color: #f8f9fa;
+}
+
 h4 {
     font-size: 13pt;
     font-weight: bold;
 }
+
 h5 {
     font-size: 12pt;
 }
@@ -53,12 +97,224 @@ h5 {
 footer {
     background-color: #fafc3a;
 }
+
 legend {
     font-size: 12pt;
 }
+
 fieldset {
     border: 1pt solid #222;
 }
-.pannel-tittle a:hover {
-    text-decoration: none;
+
+a:hover {
+    color: #222;
+    font-weight: normal;
 }
+
+li.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.navbar-brand a {
+    color: #222;
+    text-transform: uppercase;
+}
+
+.navbar-brand li:hover {
+    background-color: #fafc3a;
+}
+
+.navbar-brand li.last:hover {
+    background-color: #f8f9fa;
+}
+
+.navbar-brand li.last li:hover {
+    background-color: #fafc3a;
+}
+
+.navbar-brand li.last:hover {
+    background-color: rgba(250, 252, 58, 0.2);
+    color: #222
+}
+
+.navbar-brand li:hover a {
+    color: #333;
+    text-decoration: inherit;
+}
+
+.dropdown-menu {
+    background-color: #f8f9fa;
+}
+
+.panel-title a:hover {
+    text-decoration: inherit;
+    border-bottom: 1pt solid #666;
+}
+
+.img_hover {
+    position: relative;
+    height: auto;
+    overflow: hidden;
+}
+
+.img_hover:hover .caption {
+    opacity: 1;
+    transform: translateY(-35px);
+    -webkit-transform: translateY(-35px);
+    -moz-transform: translateY(-35px);
+    -ms-transform: translateY(-35px);
+    -o-transform: translateY(-35px);
+}
+
+.img_hover:hover .caption-text {
+    color: #222;
+}
+
+.img_hover img {
+    z-index: 4;
+}
+
+.caption {
+    opacity: 0.5;
+    position: absolute;
+    bottom: 25px;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    width: 100%;
+}
+
+.caption-text {
+    background-color: #fafc3a;
+    z-index: 10;
+    color: #222;
+    position: absolute;
+    text-align: center;
+    top: 0px;
+    width: 100%;
+    padding: 0.5em 0;
+    height: 60px;
+}
+
+caption h5 {
+    background-color: #fafc3a;
+    color: #222;
+    text-align: center;
+    width: 100%;
+    padding: 0.5em 0;
+    height: 60px;
+}
+
+.img_hover {
+    position: relative;
+    height: auto;
+    overflow: hidden;
+}
+
+.img_hover:hover .caption {
+    opacity: 1;
+    transform: translateY(-35px);
+    -webkit-transform: translateY(-35px);
+    -moz-transform: translateY(-35px);
+    -ms-transform: translateY(-35px);
+    -o-transform: translateY(-35px);
+}
+
+.img_hover:hover .caption-text {
+    color: #222;
+}
+
+.img_hover img {
+    z-index: 4;
+}
+
+.caption {
+    opacity: 0.5;
+    position: absolute;
+    bottom: 25px;
+    -webkit-transition: all 0.3s ease-in-out;
+    -moz-transition: all 0.3s ease-in-out;
+    -o-transition: all 0.3s ease-in-out;
+    -ms-transition: all 0.3s ease-in-out;
+    transition: all 0.3s ease-in-out;
+    width: 100%;
+}
+
+.caption-text {
+    background-color: #fafc3a;
+    z-index: 10;
+    color: #222;
+    position: absolute;
+    text-align: center;
+    top: 0px;
+    width: 100%;
+    padding: 0.5em;
+    height: 60px;
+}
+
+.caption_text {
+    position: relative;
+}
+
+.text {
+    background-color: #fafc3a;
+    color: #222;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+    padding: 0.5em;
+    height: 60px;
+    bottom: 0px;
+}
+
+ .img_hover{
+		position: relative;
+        height: auto;
+        overflow: hidden;
+	}
+	.img_hover:hover .caption{
+		opacity: 1;
+		transform: translateY(-35px);
+		-webkit-transform:translateY(-35px);
+		-moz-transform:translateY(-35px);
+		-ms-transform:translateY(-35px);
+		-o-transform:translateY(-35px);
+	}
+    .img_hover:hover .caption-text{
+        color: #222;
+        }
+	.img_hover img{
+		z-index: 4;
+	}
+	.caption{
+        opacity: 0.5;
+		position: absolute;
+		bottom:25px;
+		-webkit-transition:all 0.3s ease-in-out;
+		-moz-transition:all 0.3s ease-in-out;
+		-o-transition:all 0.3s ease-in-out;
+		-ms-transition:all 0.3s ease-in-out;
+		transition:all 0.3s ease-in-out;
+		width: 100%;
+	}
+	.caption-text{
+        background-color: #fafc3a;
+		z-index: 10;
+		color: #777;
+		position: absolute;
+		text-align: center;
+		top:0px;
+		width: 100%;
+        padding: 0.5em 0;
+        height: 60px;
+	}
+    caption h5 {
+        background-color: #fafc3a;
+		color: #222;
+		text-align: center;
+		width: 100%;
+        padding: 0.5em 0;
+        height: 60px;
+        }
