@@ -5,22 +5,18 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <title>Gravissime - Contact</title>
-    <link rel="stylesheet" type="text/css" href="../css/bootstrap.min.css">
-    <link rel="stylesheet" type="text/css" href="../css/normalize.css">
-    <link rel="stylesheet" type="text/css" href="../css/styles.css">
-    <link rel="shortcut icon" href="../image/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="../image/favicon.ico" type="image/x-icon">
-    <style type="text/css">
-        a:hover {
-            color: #222;
-        }
-    </style>
+    <link rel="stylesheet" type="text/css" href="assets/css/bootstrap.min.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/normalize.css">
+    <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
+    <link rel="shortcut icon" href="assets/image/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="assets/image/favicon.ico" type="image/x-icon">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
 </head>
 <body>
     <div class="container">
         <div class="col-xs-12">
            <header class="col-xs-12 mt-5 pull-right">
-        <img src="../image/logo.png" width="100%" class="header">
+        <img src="assets/image/logo.png" width="100%" class="header">
         <div class="text-center text-uppercase pb-1 pt-3" style="background-color : #fafc3a;">
             <p>Votre solution pour la livraison de graviers, sables, béton, sables stabilisés,...</p>
         </div>
@@ -29,6 +25,13 @@
     </div>
     <div class="container">
         <div class="col-xs-12 content">
+           <div class="row">
+            <div class="col-lg-3 col-md-2 col-sm-2 col-xs-2">
+                <?php
+                  include 'navigation.php';  
+                ?>
+            </div>
+            <div class="col-lg-9 col-md-10 col-sm-9 mt-2">
             <nav aria-label="breadcrumb">
                       <ol class="breadcrumb bg-light">
                           <li class="breadcrumb-item">Gravissime</li>
@@ -36,46 +39,54 @@
                     
                       </ol>
                 </nav>
-                <div class="container pb-2">
+                <div class="pb-2">
                      <?php
                       $nom     = htmlentities($_POST['nom']); 
-                      $email   = htmlentities($_POST['email']);
-                      $message = htmlentities($_POST['message']);
-                      $tel = htmlentities($_POST['tel']);
+                      $prenom  = htmlentities($_POST['prenom']);
+                      $email   = htmlentities($_POST["email"].'@'.$_POST['domaine']);
+                      $message    = htmlentities($_POST['message']);
+                      $tel     = htmlentities($_POST["prefixe"].' '.$_POST['champ1'].' '.$_POST['champ2'].' '.$_POST['champ3']);
 
-                      // Variables concernant l'email
+    
+	                $to = 'romain.bourgeois@skynet.be';
+                    $subject = 'Nouveau message du site';
+                    
+                    $contenu = '<img width="100%" src="https://gravissime.biz/page/logo.png">';
+                    $contenu .= '<p>De '.$nom.' '.$prenom.'</p>';
+                    $contenu .= '<p>'.$message.'</p>';
+                    $contenu .= '<h4>Conctact</h4>';
+                    $contenu .= '<p>'.$nom.' '.$prenom.' </p> <p> '.$tel.'</p>';
+                    
+                    
+                    $headers  = 'MIME-Version: 1.0'."\r\n";
+                    $headers .= 'Reply-To: <'.$email.'>'."\r\n"; 
+                    $headers .= 'From:  Gravissime <info@gravissime.biz>'."\r\n";
+                    $headers .= 'Content-Type: text/html; charset=utf-8'."\r\n";
+                    $headers .= 'X-Priority: 2'."\r\n";
+                    $headers .= 'X-MSMail-Priority: High'."\r\n";
+                    $headers .= 'Importance: High'."\r\n";
+                    $headers .= 'Content-Transfer-Encoding: 8BIT'."\r\n"; 
 
-                      $destinataire = 'romain.bourgeois@skynet.be'; // Adresse email du webmaster (à personnaliser)
-                      $sujet = 'Nouveau message du site';
-                      $contenu = '<html><head><title>Nouveau message du site</title></head><body>';
-                      $contenu .= '<p>Nom : '.$nom.'</p>';
-                      $contenu .= '<p>Email : '.$email.'</p>';
-                      $contenu .= '<p>Telephone : '.$tel.'</p>';
-                      $contenu .= '<p>Message : '.$message.'</p>';
-                      $contenu .= '</body></html>'; // Contenu du message de l'email (en XHTML)
-
-                      // Pour envoyer un email HTML, l'en-tête Content-type doit être défini
-                      $headers = 'MIME-Version: 1.0'."\r\n";
-                      $headers .= 'Content-type: text/html; charset=iso-8859-1'."\r\n";
-
-                      // Envoyer l'email
-                      mail($destinataire, $sujet, $contenu, $headers); // Fonction principale qui envoi l'email
-                      echo 'Message envoyé !'; // Afficher un message pour indiquer que le message a été envoyé
-                      //  Fin du code pour traiter l'envoi de l'email
+                    
+                mail($to, $subject, $contenu, $headers);
+                    
                         ?>
-                        <p class="mt-2"><a href="../../index.php" class="btn btn-light">Retour</a></p>
+
+               <p class="alert alert-success">Message envoyé.</p>
             </div>
+            </div>
+            </div>
+        </div>
       </div>
-    </div>
         <div class="container">
     <footer class="col-xs-12">
         <?php
-          include 'footer.php';  
+          include 'page/footer.php';  
         ?>
     </footer>
 </div>
-    <script src="../js/jquery.js"></script>
-    <script src="../js/popper.min.js"></script> 
-    <script src="../js/bootstrap.min.js"></script>   
+    <script src="assets/js/jquery.min.js"></script>
+    <script src="assets/js/popper.min.js"></script> 
+    <script src="assets/js/bootstrap.min.js"></script>   
 </body>
 </html>

@@ -10,57 +10,7 @@
     <link rel="stylesheet" type="text/css" href="assets/css/styles.css">
     <link rel="shortcut icon" href="assets/image/favicon.ico" type="image/x-icon">
     <link rel="icon" href="assets/image/favicon.ico" type="image/x-icon">
-    <style type="text/css">
-        .img_hover{
-		position: relative;
-        height: auto;
-        overflow: hidden;
-	}
-	.img_hover:hover .caption{
-		opacity: 1;
-		transform: translateY(-35px);
-		-webkit-transform:translateY(-35px);
-		-moz-transform:translateY(-35px);
-		-ms-transform:translateY(-35px);
-		-o-transform:translateY(-35px);
-	}
-    .img_hover:hover .caption-text{
-        color: #222;
-        }
-	.img_hover img{
-		z-index: 4;
-	}
-	.caption{
-        opacity: 0.5;
-		position: absolute;
-		bottom:25px;
-		-webkit-transition:all 0.3s ease-in-out;
-		-moz-transition:all 0.3s ease-in-out;
-		-o-transition:all 0.3s ease-in-out;
-		-ms-transition:all 0.3s ease-in-out;
-		transition:all 0.3s ease-in-out;
-		width: 100%;
-	}
-	.caption-text{
-        background-color: #fafc3a;
-		z-index: 10;
-		color: #777;
-		position: absolute;
-		text-align: center;
-		top:0px;
-		width: 100%;
-        padding: 0.5em 0;
-        height: 60px;
-	}
-    caption h5 {
-        background-color: #fafc3a;
-		color: #222;
-		text-align: center;
-		width: 100%;
-        padding: 0.5em 0;
-        height: 60px;
-        }
-    </style>
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
 </head>
 <body>
 <div class="container">
@@ -72,7 +22,7 @@
     </header>
     <div class="mx auto">
         <?php
-          include 'banner.php';  
+          include 'page/banner.php';  
         ?>
     </div>
 </div>
@@ -108,7 +58,7 @@
                         <div class="col-lg-3 col-md-6 col-sm-6 my-2">
                             <div class="img_hover">
                                 <a href="page/concasse_recycle.php">
-                                    <img src="assets/image/types/recycle-concassee.png" width="100%" class="img-responsive" alt="">
+                                    <img src="assets/image/types/recycle-concassee.jpg" width="100%" class="img-responsive" alt="">
                                 </a>
                                 <div class="caption">
                                     <div class="caption-text">
@@ -205,7 +155,7 @@
                         </div>
                         <div class="col-sm-6 mb-3 mx-auto">
                                 <a href="page/concasse_recycle.php">
-                                    <img src="assets/image/types/recycle-concassee.png" width="100%" class="img-responsive" alt="">
+                                    <img src="assets/image/types/recycle-concassee.jpg" width="100%" class="img-responsive" alt="">
                                 </a>
                                 <footer>
                                         <h5 class="text-center py-3">Concassés de recyclés</h5>
@@ -274,7 +224,7 @@
                         </div>
                         <div class="col-10 mb-3 mx-auto">
                                 <a href="page/concasse_recycle.php">
-                                    <img src="assets/image/types/recycle-concassee.png" width="100%" class="img-responsive" alt="">
+                                    <img src="assets/image/types/recycle-concassee.jpg" width="100%" class="img-responsive" alt="">
                                 </a>
                                 <footer>
                                         <h5 class="text-center py-3">Concassés de recyclés</h5>
@@ -336,15 +286,12 @@
 <div class="container">
     <footer>
         <?php
-          include 'footer.php';  
+          include 'page/footer.php';  
         ?>
     </footer>
 </div>
-<script src="assets/js/jquery.js"></script>
+<script src="assets/js/jquery.min.js"></script>
 <script src="assets/js/popper.min.js"></script> 
-<script src="assets/js/bootstrap.min.js"></script> 
-<script type="text/javascript" src="assets/scripts/mootools.js"></script>
-<script type="text/javascript" src="assets/scripts/multibox.js"></script>
-<script type="text/javascript" src="assets/scripts/overlay.js"></script>   
+<script src="assets/js/bootstrap.min.js"></script>  
 </body>
 </html>

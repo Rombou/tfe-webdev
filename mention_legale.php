@@ -28,7 +28,7 @@
     </header>
     <div class="mx auto">
         <?php
-          include 'banner.php';  
+          include 'page/banner.php';  
         ?>
     </div>
 </div>
@@ -126,16 +126,12 @@
 <div class="container">
     <footer class="col-xs-12">
         <?php
-          include 'footer.php';  
+          include 'page/footer.php';  
         ?>
     </footer>
 </div>
-<script src="assets/js/jquery.js"></script>
+<script src="assets/js/jquery.min.js"></script>
 <script src="assets/js/popper.min.js"></script> 
 <script src="assets/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="assets/scripts/mootools.js"></script>
-<script type="text/javascript" src="assets/scripts/multibox.js"></script>
-<script type="text/javascript" src="assets/scripts/overlay.js"></script>
-<script type="text/javascript" src="assets/js/acordeon.js"></script>
 </body>
 </html>

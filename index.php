@@ -28,7 +28,7 @@
     </header>
     <div class="mx auto">
         <?php
-          include 'banner.php';  
+          include 'page/banner.php';  
         ?>
     </div>
 </div>
@@ -105,9 +105,9 @@
                             </div>
                             <div class="col-lg-6 mr-6">
                                 <b>Prix très compétitifs</b> <hr>
-                                <b>Livraison rapide </b><a href="assets/pdf/Condition_generale.pdf" target="_blank"><i class="fa fa-angle-double-right" title="En savoir plus"></i></a><hr>
-                                <b>Un système de calcul des quantités</b> qui vous permet de commander ce dont vous avez besoin. <hr>
-                                <b>Le contact client </b>, que vous commandiez 1 tonne ou 100 tonnes, vous serez toujours accueillis avec le sourire.
+                                <b>Livraison rapide </b><a href="condition_general.php"><i class="fa fa-angle-double-right" title="En savoir plus"></i></a><hr>
+                                Grâce au <b>panier</b>, vous pourrez calculer le montant de vos achats, hors frais de transport. <hr>
+                                <b>Le contact client </b> : que vous commandiez 1 tonne ou 100 tonnes, vous serez toujours accueillis avec le sourire.
                             </div>
                         </div>
                        </div>
@@ -117,8 +117,8 @@
                         </div>
                             <div class="col-sm-12">
                                 <b>Prix très compétitifs</b> <hr>
-                                <b>Livraison rapide </b><a href="assets/pdf/Condition_generale.pdf" target="_blank"><i class="fa fa-angle-double-right" title="En savoir plus"></i></a><hr>
-                                <b>Un système de calcul des quantités</b> qui vous permet de commander ce dont vous avez besoin. <hr>
+                                <b>Livraison rapide </b><a href="condition_general.php" ><i class="fa fa-angle-double-right" title="En savoir plus"></i></a><hr>
+                                Grâce au <b>panier</b>, vous pourrez calculer le montant de vos achats, hors frais de transport. <hr>
                                 <b>Le contact client</b>, que vous commandiez 1 tonne ou 100 tonnes, vous serez toujours accueillis avec le sourire
                             </div>
                         </div>
@@ -131,16 +131,13 @@
 <div class="container">
     <footer class="col-xs-12">
         <?php
-          include 'footer.php';  
+          include 'page/footer.php';  
         ?>
     </footer>
 </div>
-<script src="assets/js/jquery.js"></script>
+<script src="assets/js/jquery.min.js"></script>
 <script src="assets/js/popper.min.js"></script> 
 <script src="assets/js/bootstrap.min.js"></script>
-<script type="text/javascript" src="assets/scripts/mootools.js"></script>
-<script type="text/javascript" src="assets/scripts/multibox.js"></script>
-<script type="text/javascript" src="assets/scripts/overlay.js"></script>
-<script type="text/javascript" src="assets/js/acordeon.js"></script>
+<script src="assets/js/acordeon.js"></script>
 </body>
 </html>
