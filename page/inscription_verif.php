@@ -41,7 +41,7 @@
 <?php
     include 'header.php';
 //Récuperer email depuis variable $_POST
-$email   = $_POST["email"].'@'.$_POST['domaine'];
+$email   = $_POST["email"];
 $nom     = $_POST["nom"];
 $prenom  = $_POST["prenom"];
 $tel     = $_POST["prefixe"].' '.$_POST['champ1'].' '.$_POST['champ2'].' '.$_POST['champ3'];
@@ -100,13 +100,7 @@ $resultat = $reponse->fetch();
                             <div class="form-group row">
                                     <label for="colFormLabel" class="col-lg-3 col-md-4 col-form-label">Email :</label>
                                     <div class="col-md-8 col-lg-9">
-                                       <div class="input-group">
                                             <input name="email" type="text" placeholder="user" class="form-control" readonly value="<?=$_POST["email"];?>">
-                                            <div class="input-group-prepend">
-                                                 <div class="input-group-text">@</div>
-                                            </div>
-                                            <input type="text" name="domaine" placeholder="domaine.com" class="form-control" readonly value="<?=$_POST["domaine"];?>">
-                                        </div>
                                     </div>
                             </div>
                             <div class="form-group row">
@@ -198,13 +192,7 @@ $resultat = $reponse->fetch();
                             <div class="form-group row">
                                     <label for="colFormLabel" class="col-lg-3 col-md-4 col-form-label">Email :</label>
                                     <div class="col-md-8 col-lg-9 container">
-                                        <div class="input-group">
                                             <input name="email" type="text" placeholder="user" class="form-control" readonly value="<?=$_POST["email"];?>">
-                                            <div class="input-group-prepend">
-                                                 <div class="input-group-text">@</div>
-                                            </div>
-                                            <input type="text" name="domaine" placeholder="domaine.com" class="form-control" readonly value="<?=$_POST["domaine"];?>">
-                                        </div>
                                     </div>
                             </div>
                             <div class="form-group row">
@@ -297,13 +285,7 @@ else {
                             <div class="form-group row">
                                     <label for="colFormLabel" class="col-lg-3 col-md-4 col-form-label">Email :</label>
                                     <div class="col-md-8 col-lg-9">
-                                       <div class="input-group">
                                             <input name="email" type="text" placeholder="user" class="form-control" readonly value="<?=$_POST["email"];?>">
-                                            <div class="input-group-prepend">
-                                                 <div class="input-group-text">@</div>
-                                            </div>
-                                            <input type="text" name="domaine" placeholder="domaine.com" class="form-control" readonly value="<?=$_POST["domaine"];?>">
-                                        </div>
                                        <legend class="text-danger">Email dèjà utilisé.</legend>
                                         <span class="valid-feedback">
                                             Cela semble correct !

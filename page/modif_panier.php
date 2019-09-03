@@ -89,7 +89,7 @@ include 'panier_fonction.php';
                         </div>
 			    </div>
                  <div class="container text-center">
-			         <input type="submit" class="btn btn-light mt-2" value="Modifier"/>
+			         <input type="submit" class="btn btn-light mt-2 col-3" value="Modifier"/>
 			        <input type="hidden" name="action" value="refresh"/>
                         </div>
 			    </div>

@@ -1,7 +1,3 @@
-<?php
-session_start();
-include_once("fonctions-panier.php");
-?>
 <!DOCTYPE html>
 <html lang="fr">
 <head>
@@ -61,11 +57,11 @@ include_once("fonctions-panier.php");
                                 $tva      = htmlentities($_POST['tva']);
                                 $totTvac  = htmlentities($_POST['totTvac']);
                                 $commande = nl2br($tableau);
+                                $id       = $_POST['id'];
 
                             $to = "romain.bourgeois@skynet.be";
                             $sujet = "Nouvelle commande";
 
-                            $contenu = '<body style="font-size: 12pt;">'."\n";
                             $contenu .= '<img width="100%" src="https://gravissime.biz/page/logo.png"><div style="color: #333;">'."\n";
                             $contenu .= '<h4>Adresse du destinataire</h4>'."\n";
                             $contenu .= '<p>'.$nom .' '.$prenom.'</p>'."\n";
@@ -79,21 +75,28 @@ include_once("fonctions-panier.php");
                             $contenu .= '<p style="text-align : center; background: #CFCFCF; padding : 1em;"> Total TVAC : '.$totTvac.' € *</p></div>';
                             $contenu .= '<i>* Prix hors frais de transport.</i>';
                             $contenu .= '<p>Archipel SPRL - 1380 Lasne - info@gravissime.biz - 0494 44 41 42<br>TVA : BE 0460 510 864 </p>';
-                            $contenu .= '</div></body>'; // Contenu du message de l'email (en XHTML)
+                            $contenu .= '</div>'; // Contenu du message de l'email (en XHTML)
 
                             // Pour envoyer un email HTML, l'en-tête Content-type doit être défini
                             $headers  = 'MIME-Version: 1.0'."\n";
                             $headers .= 'Content-type: text/html; charset=utf8'."\n";
                             $headers .= 'From: Gravissime <info@gravissime.biz>'."\n";
                             $headers .= 'Reply-to :'.$email."\n";
-                            $headers .='Bcc :'.$email."\n";
+                            $headers .= 'Cc : '.$email."\n";
+                            $headers .= 'X-Priority: 2'."\r\n";
+                            $headers .= 'X-MSMail-Priority: High'."\r\n";
+                            $headers .= 'Importance: High'."\r\n";
                             $headers .= "Content-Transfer-Encoding: 8bit\n";
 
                             // Envoyer l'email
                            $success = mail($to, $sujet, $contenu, $headers); // Fonction principale qui envoi l'email
                           if (true==$success){
+                              include 'header.php';
+                              $requete ="INSERT INTO commande (`produit`, `totalHTVA`, `totalTVAC`,`date`, `ut_id` ) VALUES ('$tableau','$total','$totTvac',NOW(),'$id')";
+                                $bdd->exec($requete);
                               ?>
-                              <p class="alert alert-success"> Message envoyé</p>
+                              <p class="alert alert-success"> Produit(s) commandé(s)</p>
+                              <p class="alert alert-info">Vous recevrez un mail de confirmation. <br>Attention ce mail peut être succétible de se trouver dans vos spams.</p>
                               <?php
                           }
                           else {

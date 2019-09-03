@@ -41,17 +41,18 @@
     $email = $_POST['email'];
     $login = $_POST['login'];
     $mdp = $_POST['password'];
-    $rep = $bdd->prepare('SELECT * FROM utilisateur WHERE password = :mdp');
+    $password = md5($mdp);
+    $rep = $bdd->prepare('SELECT * FROM utilisateur WHERE email = :email');
     $rep->execute(array(
-            'mdp'=> $mdp));
+            'email'=> $email));
     $donnees = $rep->fetch();
-    if ($donnees['password'] == $mdp) {
+    if ($password == $donnees['password']) {
             ?>
             <form action="mdp_verif.php" method="post" id="inscription" class="needs-validation" name="inscription" novalidate>
                     <fieldset class="col-12 mb-3">
                         <legend class="text-center">Vérification de la disponibilité du mots de passe</legend>
-                            <input name="email" value="<?=$_POST['email'];?>" type="hidden">
-                            <input name="login" type="hidden" value="<?=$_POST['login'];?>">
+                            <input name="email" value="<?=email;?>" type="hidden">
+                            <input name="login" type="hidden" value="<?=$login;?>">
                         <div class="form-group row">
                                 <label for="colFormLabel" class="col-lg-3 col-md-4 col-form-label">Mot de passe :</label>
                                 <div class="col-lg-9 col-md-8">

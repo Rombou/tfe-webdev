@@ -43,73 +43,36 @@
                         <li class="breadcrumb-item active" aria-current="page">Béton maigre</li>
                       </ol>
                 </nav>
-                <div class="d-none d-sm-block">
-                    <table class="table table-light table-hover">
-                       <thead class="table-secondary">
-                              <th>Nom</th>
-                              <th>Prix htva (21%)</th>
-                              <th colspan="2">Quantité</th>
-                          </thead>
-                        <tbody>
+                <div class="table-secondary row col-12 py-2">
+                         <h4 class="d-block d-md-none">Produit</h4>
+                          <h4 class="d-none d-md-block col-md-4">Nom</h4>
+                           <h4 class=" d-none d-md-block col-md-4">Prix htva (21%)</h4>
+                           <h4 class="d-none d-md-block col-md-3">Quantité</h4>
+                        </div>
                             <?php
                               include 'header.php';
                                 $reponse = $bdd->query('SELECT proid,nom,prix FROM produits WHERE cat_id=9');
-                                $proid=$donnees['proid'];
                                 while ($donnees = $reponse->fetch())
                                 {
                                     ?>
-                                    <tr>
-                                        <form action="ajout_panier.php?action=ajout&amp;l&amp;q&amp;p" method="post">
-                                        <td><?=$donnees['nom']?><input type='hidden' name='nom' value="<?=$donnees['nom']?>"></td>
-                                            <td><?=$donnees['prix']?><input type="hidden" name='prix' value="<?=$donnees['prix'];?>"></td>
-                                        <td><input class="form-control"type="number" min="1" max="99" value="1" name="nombre" required></td>
-                                                <td> 
-                                                    <input class="btn btn-light" value="+" type='submit' title="Ajouter au panier">
-                                                </td>
-                                         </form>
-                                    </tr>
+                            <form action="ajout_panier.php?action=ajout&amp;l&amp;q&amp;p" method="post">
+                                <div class='bg-light row col-12 border-bottom py-1 row'>
+                                    <div class="col-md-4"><span class="d-md-none d-sm-block mt-1"><h4>Nom :</h4></span>
+                                    <input type='text' class="form-control-plaintext" name='nom' value="<?=$donnees['nom']?>"></div>
+                                    <div class="col-md-4"><span class="d-md-none d-sm-block mt-1"><h4>Prix htva (21%) :</h4> </span>
+                                    <input type="text" name='prix' class="form-control-plaintext" value="<?=$donnees['prix'];?>">
+                                    </div><div class="col-md-3"><span class="d-md-none d-sm-block mt-1"><h4>Quantité</h4> </span>
+                                    <input class="form-control"type="number" min="1" max="99" value="1" name="nombre" required>
+                                    </div>
+                                    <div class="text-center col-md-1 mx-auto container">
+                                   <input class="btn btn-light" value="+" type='submit' title="Ajouter au panier">
+                                    </div>
+                                </div>
                                     <?php
                                 }
                                 $reponse->closeCursor();
                             ?>
-                        </tbody>
-                    </table>
-                    </div>
-                <div class="d-xs-block d-sm-none">
-                    <table class="table table-light table-striped">
-                        <tbody>
-                            <?php
-                              include 'header.php';
-                                $reponse = $bdd->query('SELECT proid,nom,prix FROM produit WHERE cat_id=6');
-                                $proid=$donnees['proid'];
-                                while ($donnees = $reponse->fetch())
-                                {
-                                    ?>
-                                    <tr>
-                                          <td>
-                                          <table>
-                                           <form action="panier.php?action=ajout&amp;l&amp;q&amp;p" method="post">
-                                                  <p> <b>Nom :</b> <?=$donnees['nom']?><input type='hidden'  name='nom' value="<?=$donnees['nom']?>"></p>
-                                                     <p>
-                                                      <b>Prix htva (21%) : </b> <?=$donnees['prix']?><input type="hidden" name='prix' value="<?=$donnees['prix'];?>">
-                                               </p>
-                                               <div class="container">
-                                                    <p class="form-group row text-center">
-                                                        <input class="form-control col-3" type="number" min="1" max="99" placeholder="1" name="nombre" required>
-                                                        <input class="form-control col-3" type='submit' value='+'>
-                                                   </p> 
-                                               </div>
-                                            </form>
-                                              </table>
-                                              </td>
-                                            </tr>
-                                    <?php
-                                }
-                                $reponse->closeCursor();
-                            ?>
-                        </tbody>
-                    </table>
-                </div>
+                       </form>
                 </div>
             </div>
         </div> 

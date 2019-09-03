@@ -50,6 +50,7 @@ include_once("fonctions-panier.php");
                         <form action="envoicommande.php" method="post">
                           <div class="contenu mb-2">
                           <h4>Adresse du destinataire</h4>
+                                <input type="hidden" name="id" value="<?=$_POST['id'];?>">
                                 <input type="hidden" name="nom" value="<?=$_POST['nom'];?>"><input type="hidden" name="prenom" value="<?=$_POST['prenom'];?>">
                                 <input type="hidden" name="email" value="<?=$_POST['email'];?>">
                                 <input type="hidden" name="tel" value="<?=$_POST['tel'];?>">
@@ -136,6 +137,10 @@ include_once("fonctions-panier.php");
                             </center>
                         </p>
                        </form> 
+                       <?php
+                         $_session= array();
+                                session_destroy();  
+                       ?>
                     </div>
                </div>
             </div>

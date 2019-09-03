@@ -61,7 +61,7 @@
                         </fieldset>
                         <div class="form-group text-center col-12 mt-3">
                                     <div class="col-4 mx-auto">
-                                      <input type="submit" class="btn btn-light" value="Envoyer"> 
+                                      <input type="submit" class="btn btn-light" value="Se connecter"> 
                                     </div>
                             </div>
                     </form>

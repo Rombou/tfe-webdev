@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Gravissime - Commande</title>
+    <title>Gravissime - Mes commandes</title>
     <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../assets/css/normalize.css">
     <link rel="stylesheet" type="text/css" href="../assets/css/styles.css">
@@ -39,10 +39,10 @@
                <nav aria-label="breadcrumb">
                       <ol class="breadcrumb bg-light">
                             <li class="breadcrumb-item"><a href="../index.php">Gravissime</a></li>
-                            <li class="breadcrumb-item active">Commande</li>
+                            <li class="breadcrumb-item active">Mes commandes</li>
                       </ol>
                 </nav>
-        <form action="connexion.php" method="post" id="connexion" name="inscription" class="needs-validation" novalidate>
+        <form action="connect_verif.php" method="post" id="connexion" name="inscription" class="needs-validation" novalidate>
                     <fieldset class="col-12">
                         <legend class="text-center">Se connecter</legend>
                            <div class="form-group row">

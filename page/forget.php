@@ -50,32 +50,42 @@
                 $nom     = $resultat['nom_ut']; 
                 $prenom  = $resultat['prenom'];
                 $login   = $resultat['login'];
-
-                                  // Variables concernant l'email
-
-                                  $destinataire = $email;
-                                  $sujet    = 'Demande de nouveau mot de passe';
-                                  $sujet = '=?UTF-8?B?'.base64_encode($sujet).'?=';
-                                  // Pour envoyer un email HTML, l'en-tête Content-type doit être défini
-                                  $header  = 'MIME-Version: 1.0'."\n";
-                                  $header .= 'Content-type: text/html; charset=utf8'."\n";
-                                  $header .= 'From: Gravissime <info@gravissime.biz>'."\n";
-                                    //contenu
-                                  $contenu  = '<html><head><title>Nouveau message du site</title></head><body><img width="100%" src="https://gravissime.biz/page/logo.png"><div style="color: #333;">';
-                                  $contenu .= '<p>Bonjour '.$nom.' '.$prenom.'</p>';
-                                  $contenu .= '<form action="https://gravissime.biz/page/mdp_oubli.php" method="post"><input type="hidden" name="email" value="'.$email.'"><input type="hidden" name="login" value="'.$login.'"><input type="submit" style="padding : 0.5em; border : 1pt solid #C2C2C2; background: #ECECEC; border-radius : 1em; color #333; width: 30%;" value="Créer un nouveau mots de passe"> </form>';
-                                  $contenu .= '<p> Information :</p>';
-                                  $contenu .= '<ul><li>Login : '.$login.'</li>';
-                                  $contenu .= '<li> Mots de passe : ****** </li></ul>';
-                                  $contenu .= '<p> Bien à vous,<br> Gravissime</p>';
-                                  $contenu .= '<legend>Ceci est un mail automatique, merci de ne pas répondre</legend'
-                                  $contenu .= '</div></body></html>'; // Contenu du message de l'email (en XHTML)
-
-                                  // Envoyer l'email
-                                  mail($destinataire, $sujet, $contenu, $header); // Fonction principale qui envoi l'email
-                                  //  Fin du code pour traiter l'envoi de l'email
-                                ?>
-                                <p class="alert alert-success">Un mail vous a été envoyé.</p>
+?>
+                                <p>Bonjour <?=$nom;?> <?=$prenom;?>. </p>
+                                 <form action="userswitch.php" method="post" class="needs-validation" novalidate>
+                      <fieldset class="col-12">
+                      <legend class="text-center">Enregistrement données</legend>
+                       <div class="form-group row">
+                                <label for="colFormLabel" class="col-lg-3 col-md-4 col-form-label">Email :</label>
+                                <div class="col-lg-9 col-md-8">
+                                    <input name="email" type="text" class="form-control" aria-describedby="emailHelp" id="colFormLabel" readonly value="<?=$email;?>">
+                               </div>
+                        </div>
+                        <div class="form-group row">
+                                <label for="colFormLabel" class="col-lg-3 col-md-4 col-form-label">Login :</label>
+                                <div class="col-lg-9 col-md-8">
+                                    <input name="login" type="text" class="form-control" id="colFormLabel" readonly value="<?=$login;?>">
+                               </div>
+                        </div>
+                        <div class="form-group row">
+                                <label for="colFormLabel" class="col-lg-3 col-md-4 col-form-label">Nouveau mot de passe :</label>
+                                <div class="col-lg-9 col-md-8">
+                                    <input name="password" type="password" class="form-control" id="colFormLabel" required>
+                                    <span class="valid-feedback">
+                                        Cela semble correct !
+                                    </span>
+                                    <span class="invalid-feedback">
+                                        Champs requis.
+                                    </span>
+                               </div>
+                        </div>
+                        </fieldset>
+                        <div class="form-group container mt-3">
+                             <div class="row">
+                              <input type="submit" value="Enregistrer" class="mx-auto btn btn-light col-3">
+                            </div>
+                        </div>
+                    </form>
                                 <?php
             }
             else{ 
@@ -111,12 +121,7 @@
                             <div class="form-group row">
                                     <label for="colFormLabel" class="col-lg-3 col-md-4 col-form-label">Email :</label>
                                     <div class="col-md-8 col-lg-9 container">
-                                       <div class="input-group">
-                                            <input name="email" type="text" placeholder="user" class="form-control" required>
-                                            <div class="input-group-prepend">
-                                                 <div class="input-group-text">@</div>
-                                            </div>
-                                            <input type="text" name="domaine" placeholder="domaine.com" class="form-control" required>
+                                            <input name="email" type="text" placeholder="user@domaine.com" class="form-control" required>
                                             <span class="valid-feedback">
                                             Cela semble correct !
                                         </span>
@@ -185,6 +190,7 @@
                                 <label for="colFormLabel" class="col-lg-3 col-md-4 col-form-label">Commune :</label>
                                 <div class="col-md-8 col-lg-9">
                               <select  name="ville" class="custom-select" id="colFormLabel">
+                                 <option value=""></option>
                                   <?php 
                                         include ('header.php');
                                         $reponse = $bdd->query('SELECT * FROM ville'); 
@@ -195,6 +201,12 @@
                                                 }
                                         ?>
                               </select>
+                              <span class="valid-feedback">
+                                        Cela semble correct !
+                                    </span>
+                                    <span class="invalid-feedback">
+                                      Champs requis.
+                                    </span>
                                </div>
                         </div>
                         </fieldset>

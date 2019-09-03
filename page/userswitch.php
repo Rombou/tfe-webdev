@@ -44,11 +44,12 @@
     $email = $_POST['email'];
     $mdp = $_POST['password'];
     $login = $_POST['login'];
+    $password = md5($mdp);
     $req = $bdd->prepare('SELECT * FROM utilisateur WHERE email = :mail');
     $req->execute(array(
         'mail'=> $email));
     $resultat = $req->fetch();
-    if ($resultat['password']==$mdp){
+    if ($resultat['password']== $password){
        ?>
             <form action="userswitch.php" method="post" class="needs-validation" novalidate>
                       <fieldset class="col-12">
@@ -86,89 +87,12 @@
             <?php 
     }
     else {
-        if ($login == $resultat['login']){
-            if ($email == $resultat['email']){
-       $requete = "UPDATE `utilisateur` SET `password` = '$mdp'  WHERE `utilisateur`.`utid` = '$id'";
-        $bdd->exec($requete);
+        $id = $resultat['id'];
+       $requete = "UPDATE `utilisateur` SET `password` = '$password'  WHERE `utilisateur`.`id` = $id";
+            $bdd->exec($requete);
         ?>
-        <p class="alert alert-success">Mot de Passe changés.</p>
+        <p class="alert alert-success">Mot de Passe changé.</p>
         <?php
-            }
-            else {
-         ?>
-            <form action="userswitch.php" method="post" class="needs-validation" novalidate>
-                      <fieldset class="col-12">
-                      <legend class="text-center">Enregistrement données</legend>
-                       <div class="form-group row">
-                                <label for="colFormLabel" class="col-lg-3 col-md-4 col-form-label">Email :</label>
-                                <div class="col-lg-9 col-md-8">
-                                    <input name="mail" type="text" class="form-control border-danger" aria-describedby="emailHelp" id="colFormLabel" required>
-                                    <legend class="text-danger">Pas la bonne adresse email !</legend>
-                                    <span class="valid-feedback">
-                                        Cela semble correct !
-                                    </span>
-                                    <span class="invalid-feedback">
-                                        Champs requis.
-                                    </span>
-                               </div>
-                        </div>
-                        <div class="form-group row">
-                                <label for="colFormLabel" class="col-lg-3 col-md-4 col-form-label">Login :</label>
-                                <div class="col-lg-9 col-md-8">
-                                    <input name="login" type="text" class="form-control" id="colFormLabel" readonly value="<?=$login;?>">
-                               </div>
-                        </div>
-                        <div class="form-group row">
-                                <label for="colFormLabel" class="col-lg-3 col-md-4 col-form-label">Mot de passe :</label>
-                                <div class="col-lg-9 col-md-8">
-                                    <input name="password" type="password" class="form-control" id="colFormLabel" readonly value="<?=$mdp;?>">
-                               </div>
-                        </div>
-                        </fieldset>
-                        <div class="form-group text-center mt-3">
-                              <input type="submit" value="Enregistrer" class="mx-auto btn btn-light col-3">
-                        </div>
-                    </form>
-        <?php
-        }       
-        }
-    else {
-      ?>
-            <form action="userswitch.php" method="post" class="needs-validation" novalidate>
-                      <fieldset class="col-12">
-                      <legend class="text-center">Enregistrement données</legend>
-                       <div class="form-group row">
-                                <label for="colFormLabel" class="col-lg-3 col-md-4 col-form-label">Email :</label>
-                                <div class="col-lg-9 col-md-8">
-                                    <input name="mail" type="text" class="form-control" aria-describedby="emailHelp" id="colFormLabel" readonly value="<?=$email;?>">
-                               </div>
-                        </div>
-                        <div class="form-group row">
-                                <label for="colFormLabel" class="col-lg-3 col-md-4 col-form-label">Login :</label>
-                                <div class="col-lg-9 col-md-8">
-                                    <input name="login" type="text" class="form-control border-danger" id="colFormLabel" required>
-                                    <legend class="text-danger">Pas le bon login !</legend>
-                                    <span class="valid-feedback">
-                                        Cela semble correct !
-                                    </span>
-                                    <span class="invalid-feedback">
-                                        Champs requis.
-                                    </span>
-                               </div>
-                        </div>
-                        <div class="form-group row">
-                                <label for="colFormLabel" class="col-lg-3 col-md-4 col-form-label">Mot de passe :</label>
-                                <div class="col-lg-9 col-md-8">
-                                    <input name="password" type="password" class="form-control" id="colFormLabel" readonly value="<?=$mdp;?>">
-                               </div>
-                        </div>
-                        </fieldset>
-                        <div class="form-group text-center mt-3">
-                              <input type="submit" value="Enregistrer" class="mx-auto btn btn-light col-3">
-                        </div>
-                    </form>
-        <?php  
-    }
 }
 ?>
 </div>
@@ -178,7 +102,7 @@
         </div>
       </div>
     </div>
-        <div class="container">
+<div class="container">
     <footer class="col-xs-12">
         <?php
           include 'footer.php';  

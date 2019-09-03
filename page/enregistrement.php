@@ -68,7 +68,7 @@
                         <div class="form-group row">
                                 <label for="colFormLabel" class="col-lg-3 col-md-4 col-form-label">Login :</label>
                                 <div class="col-lg-9 col-md-8">
-                                    <input name="login" type="text" value="<?=$_POST['login'];?>" class="form-control" id="colFormLabel" readonly>
+                                    <input name="login" type="text" value="<?=$login;?>" class="form-control" id="colFormLabel" readonly>
                                 </div>
                         </div>
                         <div class="form-group row">
@@ -98,7 +98,7 @@
                         <div class="form-group row">
                                 <label for="colFormLabel" class="col-lg-3 col-md-4 col-form-label">Email :</label>
                                 <div class="col-lg-9 col-md-8">
-                                    <input name="email" value="<?=$_POST['email'];?>" aria-describedby="emailHelp" class="form-control" id="colFormLabel" readonly>
+                                    <input name="email" value="<?=$email;?>" aria-describedby="emailHelp" class="form-control" id="colFormLabel" readonly>
                                </div>
                         </div>
                         <div class="form-group row">
@@ -134,7 +134,7 @@
             <?php
         }
         else {
-            $id = $resultat['utid'];
+            $id = $resultat['id'];
             $nom = $resultat['nom–ut'];
             $prenom = $resultat['prenom'];
             
@@ -146,7 +146,7 @@
                         <div class="form-group row">
                                 <label for="colFormLabel" class="col-lg-3 col-md-4 col-form-label">Email :</label>
                                 <div class="col-lg-9 col-md-8">
-                                    <input name="email" value="<?=$_POST['email'];?>" aria-describedby="emailHelp" class="form-control" id="colFormLabel" readonly>
+                                    <input name="email" value="<?=$email;?>" aria-describedby="emailHelp" class="form-control" id="colFormLabel" readonly>
                                </div>
                         </div>
                         <div class="form-group row">
@@ -182,11 +182,10 @@
                 <?php
             }
             else {
-            $requete = "UPDATE `utilisateur` SET `password` = '$password'  WHERE `utilisateur`.`utid` = $id";
+            $requete = "UPDATE `utilisateur` SET `password` = '$password'  WHERE `utilisateur`.`id` = $id";
             $bdd->exec($requete);
                         ?>
-                        <p>Bienvenue <?=$nom;?> <?=$prenom;?>.</p>
-                        <p class="mt-2"><a href="../index.php" class="btn btn-light">Retour</a></p>
+                        <p class="alert alert-success">Bienvenue <?=$nom;?> <?=$prenom;?>, vous êtes inscit.</p>
                        <?php
             }
         }

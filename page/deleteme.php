@@ -48,6 +48,7 @@
                         $email = $_POST['email'];
                         $login = $_POST['login'];
                         $mdp   = $_POST['password'];
+                        $password = md5($mdp);
                     
                         $req = $bdd->prepare('SELECT * FROM utilisateur WHERE email = :mail');
                         $req->execute(array(
@@ -93,7 +94,7 @@
                                 <?php
                             }
                             else {
-                                if ($mdp != $resultat['password']){
+                                if ($password != $resultat['password']){
                                     ?>
                     <form action="deleteme.php" method="post" class="needs-validation" novalidate>
                         <fieldset class="container">
@@ -132,14 +133,16 @@
                                 <?php
                                 }//mdp
                                 else {
-                                    $id      = $resultat['id'];
                                     $nom     = $resultat['nom_ut'];
                                     $prenom  = $resultat['prenom'];
+                                    $email   = $resultat['email'];
                                     ?>
                         <form action="userdelete.php" method="post" class="container">
                             <fieldset class="container">
                                 <legend class="text-center">Compte utilisateur</legend>
-                                <input type="hidden" name="id" value="<?=$id;?>">
+                                <input type="hidden" name="nom" value="<?=$nom;?>">
+                                <input type="hidden" name="prenom" value="<?=$prenom;?>">
+                                <input type="hidden" name="email" value="<?=email;?>">
                                 <p> Bonjour, <?=$nom;?> <?=$prenom;?>, êtes-vous sûr de vouloir supprimer votre compte ?</p>
                             </fieldset>
                                 <div class="form-group text-center mt-3">

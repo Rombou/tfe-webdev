@@ -42,7 +42,7 @@
                         <li class="breadcrumb-item active">Inscription</li>
                       </ol>
                 </nav>
-                    <form action="inscription_verif.php" method="post" class="needs-validation" novalidate>
+                  <form action="inscription_verif.php" method="post" class="needs-validation" novalidate>
                         <fieldset class="col-12">
                             <legend class="text-center">Personne de contact</legend>
                             <div class="form-group row">
@@ -72,19 +72,13 @@
                             <div class="form-group row">
                                     <label for="colFormLabel" class="col-lg-3 col-md-4 col-form-label">Email :</label>
                                     <div class="col-md-8 col-lg-9 container">
-                                       <div class="input-group">
-                                            <input name="email" type="text" placeholder="user" class="form-control" required>
-                                            <div class="input-group-prepend">
-                                                 <div class="input-group-text">@</div>
-                                            </div>
-                                            <input type="text" name="domaine" placeholder="domaine.com" class="form-control" required>
+                                            <input name="email" type="text" placeholder="user@domaine.com" class="form-control" required>
                                             <span class="valid-feedback">
                                             Cela semble correct !
                                         </span>
                                         <span class="invalid-feedback">
                                           Champs requis.
                                         </span>
-                                        </div>
                                     </div>
                             </div>
                             <div class="form-group row">
@@ -145,8 +139,9 @@
                         <div class="form-group row">
                                 <label for="colFormLabel" class="col-lg-3 col-md-4 col-form-label">Commune :</label>
                                 <div class="col-md-8 col-lg-9">
-                              <select  name="ville" class="custom-select" id="colFormLabel">
-                                  <?php 
+                              <select  name="ville" class="custom-select" id="colFormLabel" required>
+                                 <option value=""></option>
+                                        <?php 
                                         include ('header.php');
                                         $reponse = $bdd->query('SELECT * FROM ville'); 
                                                 while ( $donnees = $reponse->fetch()) {
@@ -156,6 +151,13 @@
                                                 }
                                         ?>
                               </select>
+                              
+                                   <span class="valid-feedback">
+                                        Cela semble correct !
+                                    </span>
+                                    <span class="invalid-feedback">
+                                      Champs requis.
+                                    </span>
                                </div>
                         </div>
                         </fieldset>

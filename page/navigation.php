@@ -10,8 +10,9 @@
                 <li class="col-sm-12 mb-4 dropdown"><a class="dropdown-toggle" href="inscription.php">Profil</a>
                     <ul class="dropdown-menu container col-sm-12">
                         <li class="col-sm-12 px-2"><a href="inscription.php">Inscription</a></li>
-                        <li class="col-sm-12 px-2"><a href="modif_utilisateur.php">Nouvelle coordonnée</a></li>
+                        <li class="col-sm-12 px-2"><a href="modif_utilisateur.php">Nouvelles coordonnées</a></li>
                         <li class="col-sm-12 px-2"><a href="supprime_user.php">Désinscription</a></li>
+                        <li class="col-sm-12 py-1" ><a href="connect_user.php">Mes commandes</a></li>
                     </ul>
                 </li>
                 <li class="col-sm-12 pl-5"><a href="panier.php">Panier <span class="border text-center ml-4 rounded-circle bg-light p-1 px-2"><?php
@@ -30,15 +31,16 @@
             <div class="container">
             <div class="bg-light collapse row" id="navbar">
                 <ul class="nav dropdown-menu mr-auto navbar navbar-brand px-2" role="navigation">
-                    <li class="col-sm-12 py-1"><a href="../index.php">Accueil</a></li>
-                    <li class="col-sm-12 py-1" ><a href="../produit.php">Produits</a></li>
-                    <li class="col-sm-12 py-1" ><a href="../condition_general.php">Conditions générales</a></li>
-                    <li class="col-sm-12 py-1" ><a href="../contact.php">Contact</a></li>
-                    <li class="col-sm-12 py-1 last" >Profil
+                    <li class="py-1"><a href="../index.php">Accueil</a></li>
+                    <li class="py-1" ><a href="../produit.php">Produits</a></li>
+                    <li class="py-1" ><a href="../condition_general.php">Conditions générales</a></li>
+                    <li class="py-1" ><a href="../contact.php">Contact</a></li>
+                    <li class="py-1 last" >Profil
                     <ul class="nav navbar">
-                        <li class="col-sm-12 py-1" ><a href="inscription.php">Inscription</a></li>
-                        <li class="col-sm-12 py-1" ><a href="modif_utilisateur.php">Nouvelle coordonnée</a></li>
-                        <li class="col-sm-12 py-1" ><a href="supprime_user.php">Désinscription</a></li>
+                        <li class="py-1" ><a href="inscription.php">Inscription</a></li>
+                        <li class="py-1" ><a href="modif_utilisateur.php">Nouvelles coordonnées</a></li>
+                        <li class="py-1" ><a href="supprime_user.php">Désinscription</a></li>
+                        <li class="py-1" ><a href="connect_user.php">Mes commandes</a></li>
                     </ul>
                 </li>
                 </ul>

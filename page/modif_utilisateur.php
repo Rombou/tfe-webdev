@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Gravissime - Nouvelle coordonnée</title>
+    <title>Gravissime - Nouvelles coordonnées</title>
     <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../assets/css/normalize.css">
     <link rel="stylesheet" type="text/css" href="../assets/css/styles.css">
@@ -39,7 +39,7 @@
                 <nav aria-label="breadcrumb">
                       <ol class="breadcrumb bg-light">
                         <li class="breadcrumb-item">Gravissime</li>
-                        <li class="breadcrumb-item active">Nouvelle coordonnée</li>
+                        <li class="breadcrumb-item active">Nouvelles coordonnées</li>
                       </ol>
                 </nav>
                 <div class="col-sm-12 mx-auto mt-2 mb-3">

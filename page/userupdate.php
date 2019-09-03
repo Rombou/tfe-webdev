@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Gravissime - Nouvelle coordonnée</title>
+    <title>Gravissime - Nouvelles coordonnées</title>
     <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../assets/css/normalize.css">
     <link rel="stylesheet" type="text/css" href="../assets/css/styles.css">
@@ -23,10 +23,18 @@
 </div>
 <div class="container">
     <div class="col-12 py-2 content">
+       <div class="col-12 py-2 content">
+       <div class="row">
+            <div class="col-lg-3 col-md-2 col-sm-2 col-xs-2">
+                <?php
+                  include 'navigation.php';  
+                ?>
+            </div>
+            <div class="col-lg-9 col-md-10 my-1">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb bg-light">
                 <li class="breadcrumb-item">Gravissime</li>
-                <li class="breadcrumb-item active">Nouvelle coordonnée</li>
+                <li class="breadcrumb-item active">Nouvelles coordonnées</li>
             </ol>
         </nav>
          <?php
@@ -80,8 +88,8 @@
                             <div class="form-group row">
                                     <label for="colFormLabel" class="col-lg-3 col-md-4 col-form-label">Télephone/GSM :</label>
                                     <div class="col-lg-9 col-md-8">
-                                        <input name="tel" type="tel" class="form-control" id="colFormLabel" required value="<?=$tel;?>">
-                                        <small id="emailHelp" class="alert alert-danger"> Seuls les numéros écrits de cette manière sont acceptés : <br> 0.. .. .. .. ou 0. ... .. .. ou 04.. .. .. ..</small>
+                                        <input name="tel" type="tel" class="form-control mb-1" id="colFormLabel" required value="<?=$tel;?>">
+                                        <small id="emailHelp" class="p-1 alert-danger"> Seuls les numéros écrits de cette manière sont acceptés : </small> <br> <small id="emailHelp" class="p-1 alert-danger">0.. .. .. .. ou 0. ... .. .. ou 04.. .. .. .. </small>
                                         <div class="text-danger">Numéro de téléphone non conforme. Merci de réessayer </div>
                                         <span class="valid-feedback">
                                             Cela semble correct !
@@ -122,6 +130,9 @@
             <?php
         }
         ?>
+               </div>
+            </div>
+        </div>
     </div>
 </div>
 <div class="container">

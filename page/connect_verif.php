@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Gravissime - Commande</title>
+    <title>Gravissime - Mes commandes</title>
     <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../assets/css/normalize.css">
     <link rel="stylesheet" type="text/css" href="../assets/css/styles.css">
@@ -34,7 +34,7 @@
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb bg-light">
                             <li class="breadcrumb-item"><a href="../../index.php">Gravissime</a></li>
-                            <li class="breadcrumb-item">Commande</li>
+                            <li class="breadcrumb-item">Mes commandes</li>
                         </ol>
                     </nav>
                         <?php
@@ -42,14 +42,14 @@
                             $login=$_POST['login'];
                             $mdp=$_POST['password'];
                             $password= md5($mdp);
-                            $req = $bdd->prepare('SELECT * FROM utilisateur INNER JOIN ville ON vilid=villeid WHERE login= :pseudo');
+                            $req = $bdd->prepare('SELECT * FROM utilisateur WHERE login= :pseudo');
                             $req->execute(array(
                                 'pseudo' => $login));
                             $resultat = $req->fetch();
                             if ($login != $resultat['login'])
                                 { 
                             ?>
-                            <form action="connexion.php" method="post" id="connexion" name="inscription" class="needs-validation" novalidate>
+                            <form action="connect_verif.php" method="post" id="connexion" name="inscription" class="needs-validation" novalidate>
                                 <fieldset>
                                     <legend class="text-center">Se connecter</legend>
                                     <div class="col-12">
@@ -93,7 +93,7 @@
                                         {
                                             if ($password != $resultat['password']) {
                                                 ?> 
-                                        <form action="connexion.php" method="post" id="connexion" name="inscription" class="needs-validation" novalidate>
+                                        <form action="connect_verif.php" method="post" id="connexion" name="inscription" class="needs-validation" novalidate>
                                             <fieldset>
                                                 <legend class="text-center">Se connecter</legend>
                                                 <div class="col-12">
@@ -126,35 +126,15 @@
                                                 <?php
                                             }
                                             else {
+                                                $id = $resultat['id'];
                                                 ?>
-                                                <div class="text-center mb-2 pb-2">
-                                                <form action="commande.php" method="post" class="needs-validation" novalidate>
-                                                    <fieldset>
-                                                        <legend class="text-center">Se connecter</legend>
-                                                        <input type="hidden" value="<?=$resultat['id'];?>" name="id">
-                                                         <input type="hidden" name="nom" value="<?=$resultat['nom_ut'];?>"><input type="hidden" name="prenom" value="<?=$resultat['prenom'];?>">
-                                                        <input type="hidden" name="email" value="<?=$resultat['email'];?>">
-                                                        <input type="hidden" name="tel" value="<?=$resultat['telephone'];?>">
-                                                        <input type="hidden" name="adresse" value="<?=$resultat['adresse'];?>"> <input type="hidden" name="num" value="<?=$resultat['numero'];?>">
-                                                        <input type="hidden" name="cp" value="<?=$resultat['cp'];?>"> <input type="hidden" name="commune" value="<?=$resultat['commune'];?>">
-                                                        <p> Bonjour <?=$resultat['nom_ut'];?> <?=$resultat['prenom'];?>, voulez-vous continuer ?</p>
-                                                        <p>
-                                                        <input class="form-check-input" type="checkbox" id="conditions" required>
-                                                            <label for="conditions">En continuant, vous acceptez nos <a href="../condition_general.php" target="_blank">conditions de vente</a>.</label>
-                                                        <span class="valid-feedback">
-                                                            Cela semble correct !
-                                                        </span>
-                                                       <span class="invalid-feedback">
-                                                          Merci de cochez la case pour continuer.
-                                                        </span>
-                                                        </p>
-                                                    </fieldset>
-                                                    <p class="mt-3">
-                                                        <a href="panier.php" class="btn btn-light col-3 mx-1">Non</a>
-                                                        <input class="btn btn-light col-3 mx-1" type="submit" value="Oui">
-                                                    </p>
-                                                </form>
-                                            </div>
+                                               <p class="alert-success alert">Connexion réussie</p>
+                                               <form action="history.php" method="post">
+                                                   <input type="hidden" name="id" value="<?=$id;?>">
+                                                <div class="mt-3 text-center">
+                                                   <input type="submit" class="btn btn-light col-3" value="Voir mes commandes">
+                                                   </div>
+                                               </form>
                                                 <?php
                                             }
                                         }
