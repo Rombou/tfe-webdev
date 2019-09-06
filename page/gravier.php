@@ -34,7 +34,7 @@
                   include 'navigation.php';  
                 ?>
             </div>
-            <div class="col-lg-9 col-md-10 col-sm-10 col-xs-10 my-1">
+            <div class="col-lg-9 col-md-10 col-sm-10 my-1">
                 <div class="container">
                    <nav aria-label="breadcrumb">
                       <ol class="breadcrumb bg-light">

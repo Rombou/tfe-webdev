@@ -34,7 +34,7 @@
                   include 'navigation.php';  
                 ?>
             </div>
-            <div class="col-lg-9 col-md-10 my-1">
+            <div class="col-lg-9 col-md-10 col-sm-10 my-1">
                <div class="container">
                 <nav aria-label="breadcrumb">
                       <ol class="breadcrumb bg-light">
@@ -100,15 +100,15 @@
                                     <label for="colFormLabel" class="col-lg-3 col-md-4 col-form-label">Télephone/GSM :</label>
                                     <div class="col-md-8 col-lg-9 container">
                                        <div class="input-group">
-                                            <input name="prefixe" type="tel" class="form-control" required minlength="2" maxlength="4" value="0">
+                                            <input name="prefixe" type="tel" class="form-control" required minlength="2" maxlength="4" value="0" min="0">
                                             <div class="input-group-prepend">
                                                  <div class="input-group-text">/</div>
                                             </div>
-                                            <input name="champ1" type="tel" class="form-control" required minlength="2" maxlength="3">
+                                            <input name="champ1" type="tel" class="form-control" required minlength="2" maxlength="3" min="0">
                                             <div class="input-group-prepend">
                                                  <div class="input-group-text"> </div>
                                             </div>
-                                            <input name="champ2" type="tel" class="form-control" required minlength="2" maxlength="2">
+                                            <input name="champ2" type="tel" class="form-control" required minlength="2" maxlength="2" min="0">
                                             <div class="input-group-prepend">
                                                  <div class="input-group-text"> </div>
                                             </div>
@@ -127,7 +127,7 @@
                                 <label for="colFormLabel" class="col-lg-3 col-md-4 col-form-label">Adresse :</label>
                                 <div class="col-md-8 col-lg-9 form-inline">
                                     <input name="adresse" type="text" class="form-control col-9" id="colFormLabel" required>
-                                    <input name="numero" type="num" class="form-control col-3" id="colFormLabel" required>
+                                    <input name="numero" type="text" class="form-control col-3" id="colFormLabel" required min="1">
                                    <span class="valid-feedback">
                                         Cela semble correct !
                                     </span>

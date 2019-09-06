@@ -17,14 +17,14 @@
     <header class="col-xs-12 mt-5 pull-right">
         <img src="../assets/image/logo.png" width="100%" class="header">
         <div class="text-center text-uppercase pb-1 pt-3" style="background-color : #fafc3a;">
-            <p>Votre solution pour la livraison de graviers, sables, bêton, sables stabilisés,...</p>
+            <p>Votre solution pour la livraison de graviers, sable, béton, sables stabilisés,...</p>
         </div>
     </header>
     <div class="mx auto">
-        <?php
-          include 'banner.php';  
-        ?>
-    </div>
+            <?php
+              include 'banner.php';  
+            ?>
+        </div>
 </div>
 <div class="container">
    <div class="col-xs-12 content">
@@ -34,37 +34,19 @@
                   include 'navigation.php';  
                 ?>
             </div>
-            <div class="col-lg-9 col-md-10 col-sm-9 mt-2">
-               <div class="container">
-                <nav aria-label="breadcrumb">
+            <div class="col-lg-9 col-md-10 col-sm-10 my-2">
+              <div class="container">
+               <nav aria-label="breadcrumb">
                       <ol class="breadcrumb bg-light">
-                        <li class="breadcrumb-item">Gravissime</li>
                         <li class="breadcrumb-item"><a href="../produit.php">Produits</a></li>
                         <li class="breadcrumb-item active" aria-current="page">Sables</li>
                       </ol>
                 </nav>
-                <div class="col-lg-6 col-md-8 mx-auto mt-2 mb-4">
-                    <div id="carouselExampleIndicators" class="carousel slide" data-ride="carousel">
-                      <ol class="carousel-indicators">
-                        <li data-target="#carouselExampleIndicators" data-slide-to="0" class="active"></li>
-                        <li data-target="#carouselExampleIndicators" data-slide-to="1"></li>
-                      </ol>
-                      <div class="carousel-inner">
-                        <div class="carousel-item active">
-                          <img class="d-block w-100" src="../assets/image/produits/sable_equestre.jpg">
-                          <legend class="text-center py-1 pb-4 bg-light">Sable équestre</legend>
-                        </div>
-                        <div class="carousel-item">
-                          <img class="d-block w-100" src="../assets/image/produits/sable-blanc.jpg">
-                          <legend class="text-center py-1 pb-4 bg-light">Sable blanc</legend>
-                        </div>
-                    </div>
-                    </div>
-                </div>
-                <div class="table-secondary row col-12 py-2">
+                    <div class="container">
+                       <div class="table-secondary row col-12 py-2">
                          <h4 class="d-block d-md-none">Produit</h4>
-                          <h4 class="d-none d-md-block col-md-4">Nom</h4>
-                           <h4 class=" d-none d-md-block col-md-4">Prix htva (21%)</h4>
+                          <h4 class="d-none d-md-block col-md-5">Nom</h4>
+                           <h4 class=" d-none d-md-block col-md-3">Prix htva (21%)</h4>
                            <h4 class="d-none d-md-block col-md-3">Quantité</h4>
                         </div>
                             <?php
@@ -74,37 +56,39 @@
                                 {
                                     ?>
                             <form action="ajout_panier.php?action=ajout&amp;l&amp;q&amp;p" method="post">
-                                <div class='bg-light row col-12 border-bottom py-1 row'>
-                                    <div class="col-md-4"><span class="d-md-none d-sm-block mt-1"><h4>Nom :</h4></span>
-                                    <input type='text' class="form-control-plaintext" name='nom' value="<?=$donnees['nom']?>"></div>
-                                    <div class="col-md-4"><span class="d-md-none d-sm-block mt-1"><h4>Prix htva (21%) :</h4> </span>
-                                    <input type="text" name='prix' class="form-control-plaintext" value="<?=$donnees['prix'];?>">
+                                <div class='bg-light col-12 border-bottom py-1 row'>
+                                    <div class="col-md-5"><span class="d-md-none d-sm-block mt-1"><h4>Nom :</h4></span>
+                                    <input type='hidden' name='nom' value="<?=$donnees['nom'];?>"><?=$donnees['nom'];?></div>
+                                    <div class="col-md-3"><span class="d-md-none d-sm-block mt-1"><h4>Prix htva (21%) :</h4> </span>
+                                    <input type="hidden" name='prix' value="<?=$donnees['prix'];?>"><?=$donnees['prix'];?>
                                     </div><div class="col-md-3"><span class="d-md-none d-sm-block mt-1"><h4>Quantité</h4> </span>
-                                    <input class="form-control"type="number" min="1" max="99" value="1" name="nombre" required>
+                                    <input class="form-control" type="number" min="1" max="99" value="1" name="nombre">
                                     </div>
-                                    <div class="text-center col-md-1 mx-auto container">
+                                    <div class="text-center col-1 mx-auto container">
                                    <input class="btn btn-light" value="+" type='submit' title="Ajouter au panier">
                                     </div>
                                 </div>
+                       </form>
                                     <?php
                                 }
                                 $reponse->closeCursor();
                             ?>
-                       </form>
+                  </div>
                 </div>
             </div>
         </div> 
     </div>
 </div>
 <div class="container">
-    <footer class="col-xs-12">
+    <footer class="col-12">
         <?php
           include 'footer.php';  
         ?>
     </footer>
 </div>
+
 <script src="../assets/js/jquery.min.js"></script>
 <script src="../assets/js/popper.min.js"></script> 
-<script src="../assets/js/bootstrap.min.js"></script>  
+<script src="../assets/js/bootstrap.min.js"></script>    
 </body>
 </html>

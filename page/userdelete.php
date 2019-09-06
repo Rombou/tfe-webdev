@@ -29,7 +29,7 @@
                   include 'navigation.php';  
                 ?>
             </div>
-            <div class="col-lg-9 col-md-10 my-1">
+            <div class="col-lg-9 col-md-10 col-sm-10 my-1">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb bg-light">
                 <li class="breadcrumb-item">Gravissime</li>
@@ -37,13 +37,13 @@
             </ol>
         </nav>
          <?php
-             $nom     = htmlentities($_POST['nom']); 
+                    $nom     = htmlentities($_POST['nom']); 
                       $prenom  = htmlentities($_POST['prenom']);
-                      $email   = htmlentities($_POST["email"].'@'.$_POST['domaine']);
+                      $email   = htmlentities($_POST["email"]);
 
     
 	                $to = 'romain.bourgeois@skynet.be';
-                    $subject = 'Nouveau message du site';
+                    $sujet = 'Demande de supression';
                     
                     $contenu = '<img width="100%" src="https://gravissime.biz/page/logo.png">';
                     $contenu .= '<p>De '.$nom.' '.$prenom.'</p>';
@@ -58,13 +58,12 @@
                     $headers .= 'X-Priority: 2'."\r\n";
                     $headers .= 'X-MSMail-Priority: High'."\r\n";
                     $headers .= 'Importance: High'."\r\n";
-                    $headers .= 'Content-Transfer-Encoding: 8BIT'."\r\n"; 
+                    $headers .= 'Content-Transfer-Encoding: 8bit'."\r\n"; 
 
                     
-                mail($to, $subject, $contenu, $headers);
+                mail($to, $sujet, $contenu, $headers);
         ?>
         <p class="alert alert-succes">Un mail a été envoyé à Gravissime. Si vous avez des commandes en cours, votre compte ne sera pas supprimé.</p>
-        <p class="alert alert-warning"><i>Si vous désirez passer une commande, vous devrez vous réinscire.</i></p>
     </div>
         </div>
     </div>

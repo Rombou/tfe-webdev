@@ -29,7 +29,7 @@
                   include 'navigation.php';  
                 ?>
             </div>
-            <div class="col-lg-9 col-md-10 my-1">
+            <div class="col-lg-9 col-md-10 col-sm-10 my-1">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb bg-light">
                 <li class="breadcrumb-item">Gravissime</li>
@@ -97,7 +97,7 @@
                                         <span class="invalid-feedback">
                                           Champs requis.
                                         </span>
-                                    <small>Merci de confirmer le mots de passe</small>
+                                    <small>Merci de confirmer le mot de passe</small>
                                </div>
                         </div>
                     </fieldset>  

@@ -34,21 +34,22 @@
                   include 'navigation.php';  
                 ?>
             </div>
-            <div class="col-lg-9 col-md-10 col-sm-9 mt-2">
+            <div class="col-lg-9 col-md-10 col-sm-10 mt-2">
                <div class="container">
                 <nav aria-label="breadcrumb">
-                      <ol class="breadcrumb">
+                      <ol class="breadcrumb bg-light">
                         <li class="breadcrumb-item">Gravissime</li>
                         <li class="breadcrumb-item"><a href="../produit.php">Produits</a></li>
                         <li class="breadcrumb-item"><a href="gravier.php">Graviers et galets</a></li>
                         <li class="breadcrumb-item active" aria-current="page">Galets - graviers roulés</li>
                       </ol>
                 </nav>
-                <div class="table-secondary row col-12 py-2">
+                <div class="container">
+                    <div class="table-secondary row col-12 py-2">
                          <h4 class="d-block d-md-none">Produit</h4>
-                          <h4 class="d-none d-md-block col-md-4">Nom</h4>
-                           <h4 class=" d-none d-md-block col-md-4">Prix htva (21%)</h4>
-                           <h4 class="d-none d-md-block col-md-3">Quantité</h4>
+                          <h4 class="d-none d-md-block col-md-6">Nom</h4>
+                           <h4 class=" d-none d-md-block col-md-3">Prix htva (21%)</h4>
+                           <h4 class="d-none d-md-block col-md-2">Quantité</h4>
                         </div>
                             <?php
                               include 'header.php';
@@ -57,23 +58,24 @@
                                 {
                                     ?>
                             <form action="ajout_panier.php?action=ajout&amp;l&amp;q&amp;p" method="post">
-                                <div class='bg-light row col-12 border-bottom py-1 row'>
-                                    <div class="col-md-4"><span class="d-md-none d-sm-block mt-1"><h4>Nom :</h4></span>
-                                    <input type='text' class="form-control-plaintext" name='nom' value="<?=$donnees['nom']?>"></div>
-                                    <div class="col-md-4"><span class="d-md-none d-sm-block mt-1"><h4>Prix htva (21%) :</h4> </span>
-                                    <input type="text" name='prix' class="form-control-plaintext" value="<?=$donnees['prix'];?>">
-                                    </div><div class="col-md-3"><span class="d-md-none d-sm-block mt-1"><h4>Quantité</h4> </span>
-                                    <input class="form-control"type="number" min="1" max="99" value="1" name="nombre" required>
+                                <div class='bg-light col-12 border-bottom py-1 row'>
+                                    <div class="col-md-6"><span class="d-md-none d-sm-block mt-1"><h4>Nom :</h4></span>
+                                        <input type='text' class="form-control-plaintext" name='nom' value="<?=$donnees['nom'];?>"></div>
+                                    <div class="col-md-3"><span class="d-md-none d-sm-block mt-1"><h4>Prix htva (21%) :</h4> </span>
+                                        <input type="text" name='prix' class="form-control-plaintext" value="<?=$donnees['prix'];?>">
+                                    </div><div class="col-md-2"><span class="d-md-none d-sm-block mt-1"><h4>Quantité</h4> </span>
+                                        <input class="form-control"type="number" min="1" max="99" value="1" name="nombre" required>
                                     </div>
                                     <div class="text-center col-md-1 mx-auto container">
-                                   <input class="btn btn-light" value="+" type='submit' title="Ajouter au panier">
+                                       <input class="btn btn-light" value="+" type='submit' title="Ajouter au panier">
                                     </div>
                                 </div>
+                       </form>
                                     <?php
                                 }
                                 $reponse->closeCursor();
                             ?>
-                       </form>
+                   </div>
                 </div>
             </div>
         </div> 
@@ -86,8 +88,9 @@
         ?>
     </footer>
 </div>
+<script src="assets/js/util.js"></script>
 <script src="../assets/js/jquery.min.js"></script>
 <script src="../assets/js/popper.min.js"></script> 
-<script src="../assets/js/bootstrap.min.js"></script>  
+<script src="../assets/js/bootstrap.min.js"></script>   
 </body>
 </html>

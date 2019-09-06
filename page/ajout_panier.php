@@ -12,7 +12,7 @@
     <link rel="stylesheet" type="text/css" href="../assets/css/normalize.css">
     <link rel="stylesheet" type="text/css" href="../assets/css/styles.css">
     <link rel="shortcut icon" href="../assets/image/favicon.ico" type="image/x-icon">
-    <link rel="icon" href="assets/image/favicon.ico" type="image/x-icon">
+    <link rel="icon" href="../assets/image/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.7.0/css/all.css">
 </head>
 <body>
@@ -61,17 +61,241 @@
                 <div class="alert-success p-2 my-2">
                     Produit ajouté
                 </div>
-                <div class="container">
-                        <div class="text-center">
-                            <a href="../produit.php" class="btn btn-light mx-1 col-3" title="Ajouter d'autre produit">
-                                <span class="d-xs-block d-sm-none"><i class="fas fa-plus"></i></span>
-                                <span class="d-none d-sm-block">Ajout produit</span>
-                            </a>
-                            <a href="panier.php" class="btn btn-light mx-1 col-3" title="Aller au pannier">
-                                <span class="d-xs-block d-sm-none"><i class="fas fa-shopping-cart"></i></span>
-                                <span class="d-none d-sm-block">Panier</span>
-                            </a>
+                <div class="d-none d-lg-block">
+                    <div class="row">
+                        <div class="col-lg-3 col-md-6 col-sm-6 my-2">
+                            <div class="img_hover">
+                                <a href="gravier.php">
+                                    <img src="../assets/image/types/gravier.jpg" width="100%" class="img-responsive">
+                                </a>
+                                <div class="caption">
+                                    <div class="caption-text">
+                                        <h5>Graviers et galets</h5>
+                                    </div>
+                                </div>
+                            </div>
                         </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 my-2">
+                            <div class="img_hover">
+                                <a href="concasse_recycle.php">
+                                    <img src="../assets/image/types/recycle-concassee.jpg" width="100%" class="img-responsive" alt="">
+                                </a>
+                                <div class="caption">
+                                    <div class="caption-text">
+                                        <h5>Concassés de recyclés</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 my-2">
+                            <div class="img_hover">
+                                <a href="sables.php">
+                                    <img src="../assets/image/types/sable.jpg" width="100%" class="img-responsive" alt="">
+                                </a>
+                                <div class="caption">
+                                    <div class="caption-text">
+                                        <h5>Sables</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 my-2">
+                            <div class="img_hover">
+                                <a href="brique_pilee.php">
+                                    <img src="../assets/image/types/brique-pilee.jpg" width="100%" class="img-responsive" alt="">
+                                </a>
+                                <div class="caption">
+                                    <div class="caption-text">
+                                        <h5>Brique pilée</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 my-2">
+                            <div class="img_hover">
+                                <a href="sable_stabilise.php">
+                                    <img src="../assets/image/types/sables_stabilise.jpg" width="100%" class="img-responsive" alt="">
+                                </a>
+                                <div class="caption">
+                                    <div class="caption-text">
+                                        <h5>Sables stabilisés</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 my-2">
+                            <div class="img_hover">
+                                <a href="beton_maigre.php">
+                                    <img src="../assets/image/types/beton.jpg" width="100%" class="img-responsive" alt="">
+                                </a>
+                                <div class="caption">
+                                    <div class="caption-text">
+                                        <h5>Bétons maigres</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 my-2">
+                            <div class="img_hover">
+                                <a href="dolomie_stabilise.php">
+                                    <img src="../assets/image/types/dolomie.jpg" width="100%" class="img-responsive" alt="">
+                                </a>
+                                <div class="caption">
+                                    <div class="caption-text">
+                                        <h5>Dolomie stabilisée</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="col-lg-3 col-md-6 col-sm-6 my-2">
+                            <div class="img_hover">
+                                <a href="autres.php">
+                                    <img src="../assets/image/types/geotex.jpg" width="100%" class="img-responsive" alt="">
+                                </a>
+                                <div class="caption">
+                                    <div class="caption-text">
+                                        <h5>Géotextiles</h5>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="d-lg-none d-none d-sm-block my-2 mx-auto">
+                    <div class="row">
+                        <div class="col-sm-6 mb-3 mx-auto">
+                                <a href="gravier.php">
+                                    <img src="../assets/image/types/gravier.jpg" width="100%" class="img-responsive">
+                                </a>
+                                    <footer>
+                                        <h5 class="text-center py-3">Graviers et galets</h5>
+                                    </footer>
+                        </div>
+                        <div class="col-sm-6 mb-3 mx-auto">
+                                <a href="concasse_recycle.php">
+                                    <img src="../assets/image/types/recycle-concassee.jpg" width="100%" class="img-responsive" alt="">
+                                </a>
+                                <footer>
+                                        <h5 class="text-center py-3">Concassés de recyclés</h5>
+                                </footer>
+                        </div>
+                        <div class="col-sm-6 mb-3 mx-auto">
+                                <a href="sables.php">
+                                    <img src="../assets/image/types/sable.jpg" width="100%" class="img-responsive" alt="">
+                                </a>
+                            <footer>
+                                <h5 class="text-center py-3">Sables</h5>
+                            </footer>
+                        </div>
+                        <div class="col-sm-6 mb-3 mx-auto">
+                                <a href="brique_pilee.php">
+                                    <img src="../assets/image/types/brique-pilee.jpg" width="100%" class="img-responsive" alt="">
+                                </a>
+                                    <footer>
+                                        <h5 class="text-center py-3">Brique pilée</h5>
+                                    </footer>
+                        </div>
+                        <div class="col-sm-6 mb-3 mx-auto">
+                                <a href="sable_stabilise.php">
+                                    <img src="../assets/image/types/sables_stabilise.jpg" width="100%" class="img-responsive" alt="">
+                                </a>
+                                <footer>
+                                    <h5 class="text-center py-3">Sables stabilisés</h5>
+                                </footer>
+                        </div>
+                        <div class="col-sm-6 mb-3 mx-auto">
+                                <a href="beton_maigre.php">
+                                    <img src="../assets/image/types/beton.jpg" width="100%" class="img-responsive" alt="">
+                                </a>
+                                    <footer>
+                                        <h5 class="text-center py-3">Bétons maigres</h5>
+                                    </footer>
+                        </div>
+                        <div class="col-sm-6 mb-3 mx-auto">
+                                <a href="dolomie_stabilise.php">
+                                    <img src="../assets/image/types/dolomie.jpg" width="100%" class="img-responsive" alt="">
+                                </a>
+                                    <footer>
+                                        <h5 class="text-center py-3">Dolomie stabilisée</h5>
+                                    </footer>
+                        </div>
+                        <div class="col-sm-6 mb-3 mx-auto">
+                                <a href="autres.php">
+                                    <img src="../assets/image/types/geotex.jpg" width="100%" class="img-responsive" alt="">
+                                </a>
+                                    <footer>
+                                        <h5 class="text-center py-3">Géotextiles</h5>
+                                    </footer>
+                        </div>
+                    </div>
+                </div>
+            <div class="d-sm-none d-xs-block my-2 mx-auto">
+                <div class="container">
+                        <div class="col-10 mb-3 mx-auto">
+                                <a href="gravier.php">
+                                    <img src="../assets/image/types/gravier.jpg" width="100%" class="img-responsive">
+                                </a>
+                                    <footer>
+                                        <h5 class="text-center py-3">Graviers et galets</h5>
+                                    </footer>
+                        </div>
+                        <div class="col-10 mb-3 mx-auto">
+                                <a href="concasse_recycle.php">
+                                    <img src="../assets/image/types/recycle-concassee.jpg" width="100%" class="img-responsive" alt="">
+                                </a>
+                                <footer>
+                                        <h5 class="text-center py-3">Concassés de recyclés</h5>
+                                </footer>
+                        </div>
+                        <div class="col-10 mb-3 mx-auto">
+                                <a href="sables.php">
+                                    <img src="../assets/image/types/sable.jpg" width="100%" class="img-responsive" alt="">
+                                </a>
+                            <footer>
+                                <h5 class="text-center py-3">Sables</h5>
+                            </footer>
+                        </div>
+                        <div class="col-10 mb-3 mx-auto">
+                                <a href="brique_pilee.php">
+                                    <img src="../assets/image/types/brique-pilee.jpg" width="100%" class="img-responsive" alt="">
+                                </a>
+                                    <footer>
+                                        <h5 class="text-center py-3">Brique pilée</h5>
+                                    </footer>
+                        </div>
+                        <div class="col-10 mb-3 mx-auto">
+                                <a href="sable_stabilise.php">
+                                    <img src="../assets/image/types/sables_stabilise.jpg" width="100%" class="img-responsive" alt="">
+                                </a>
+                                <footer>
+                                    <h5 class="text-center py-3">Sables stabilisés</h5>
+                                </footer>
+                        </div>
+                        <div class="col-10 mb-3 mx-auto">
+                                <a href="beton_maigre.php">
+                                    <img src="assets/image/types/beton.jpg" width="100%" class="img-responsive" alt="">
+                                </a>
+                                    <footer>
+                                        <h5 class="text-center py-3">Bétons maigres</h5>
+                                    </footer>
+                        </div>
+                        <div class="col-10 mb-3 mx-auto">
+                                <a href="dolomie_stabilise.php">
+                                    <img src="../assets/image/types/dolomie.jpg" width="100%" class="img-responsive" alt="">
+                                </a>
+                                    <footer>
+                                        <h5 class="text-center py-3">Dolomie stabilisée</h5>
+                                    </footer>
+                        </div>
+                        <div class="col-10 mb-3 mx-auto">
+                                <a href="autres.php">
+                                    <img src="../assets/image/types/geotex.jpg" width="100%" class="img-responsive" alt="">
+                                </a>
+                                    <footer>
+                                        <h5 class="text-center py-3">Géotextiles</h5>
+                                    </footer>
+                        </div>
+                    </div>
                 </div>
                 <?php
             }

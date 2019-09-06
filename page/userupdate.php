@@ -30,7 +30,7 @@
                   include 'navigation.php';  
                 ?>
             </div>
-            <div class="col-lg-9 col-md-10 my-1">
+            <div class="col-lg-9 col-md-10 col-sm-10 my-1">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb bg-light">
                 <li class="breadcrumb-item">Gravissime</li>
@@ -49,7 +49,7 @@
         if (preg_match('#04([7-9][0-9])[ ][0-9]{2}[ ][0-9]{2}[ ][0-9]{2}#', $tel) || preg_match('#0[2-4|9][ ][0-9]{3}[ ][0-9]{2}[ ][0-9]{2}#', $tel) || preg_match('#0(1[0-5|9]|5[0-9]|6[^2|^6]|71|8[^8])[ ][0-9]{2}[ ][0-9]{2}[ ][0-9]{2}#', $tel)){
             if ($nom == $nom){
             
-            $requete = "UPDATE `utilisateur` SET `telephone` = '$tel', `adresse` = '$adresse', `numero` = '$num', `vilid` = '$ville'  WHERE `utilisateur`. `utid` = $id";
+            $requete = "UPDATE `utilisateur` SET `telephone` = '$tel', `adresse` = '$adresse', `numero` = '$num', `vilid` = '$ville'  WHERE `utilisateur`. `id` = $id";
             $bdd->exec($requete);
         ?>
         <p>Bonjour <?=$nom;?> <?=$prenom;?>, vos données sont mises à jour</p>

@@ -34,7 +34,7 @@
                   include 'navigation.php';  
                 ?>
             </div>
-            <div class="col-lg-9 col-md-10 my-1">
+            <div class="col-lg-9 col-md-10 col-sm-10 my-1">
                <div class="container">
                 <nav aria-label="breadcrumb">
                       <ol class="breadcrumb bg-light">
@@ -239,7 +239,7 @@
                                     <label for="colFormLabel" class="col-lg-3 col-md-4 col-form-label">Email :</label>
                                     <div class="col-md-8 col-lg-9">
                                         <input name="email" placeholder="mail@domaine.com" aria-describedby="emailHelp" type="email" class="form-control border-danger" id="colFormLabel" required>
-                                        <legend class="text-danger">Mauvaise adressse mail</legend>
+                                        <legend class="text-danger">Adressse mail utilisé</legend>
                                         <span class="valid-feedback">
                                             Cela semble correct !
                                         </span>

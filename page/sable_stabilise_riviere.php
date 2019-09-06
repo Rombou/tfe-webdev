@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <title>Gravissime - Stabilisé au sable de rivière</title>
+    <title>Gravissime - Sables</title>
     <link rel="stylesheet" type="text/css" href="../assets/css/bootstrap.min.css">
     <link rel="stylesheet" type="text/css" href="../assets/css/normalize.css">
     <link rel="stylesheet" type="text/css" href="../assets/css/styles.css">
@@ -17,14 +17,14 @@
     <header class="col-xs-12 mt-5 pull-right">
         <img src="../assets/image/logo.png" width="100%" class="header">
         <div class="text-center text-uppercase pb-1 pt-3" style="background-color : #fafc3a;">
-            <p>Votre solution pour la livraison de graviers, sables, bêton, sables stabilisés,...</p>
+            <p>Votre solution pour la livraison de graviers, sable, béton, sables stabilisés,...</p>
         </div>
     </header>
     <div class="mx auto">
-        <?php
-          include 'banner.php';  
-        ?>
-    </div>
+            <?php
+              include 'banner.php';  
+            ?>
+        </div>
 </div>
 <div class="container">
    <div class="col-xs-12 content">
@@ -34,20 +34,20 @@
                   include 'navigation.php';  
                 ?>
             </div>
-            <div class="col-lg-9 col-md-10 col-sm-9 mt-2">
-               <div class="container">
-                <nav aria-label="breadcrumb">
+            <div class="col-lg-9 col-md-10 col-sm-10 my-2">
+              <div class="container">
+               <nav aria-label="breadcrumb">
                       <ol class="breadcrumb bg-light">
-                        <li class="breadcrumb-item">Gravissime</li>
                         <li class="breadcrumb-item"><a href="../produit.php">Produits</a></li>
                         <li class="breadcrumb-item"><a href="sable_stabilise.php">Sables stabilisés</a></li>
                         <li class="breadcrumb-item active" aria-current="page">Stabilisé au sable de rivière</li>
                       </ol>
                 </nav>
-                <div class="table-secondary row col-12 py-2">
+                    <div class="container">
+                       <div class="table-secondary row col-12 py-2">
                          <h4 class="d-block d-md-none">Produit</h4>
-                          <h4 class="d-none d-md-block col-md-4">Nom</h4>
-                           <h4 class=" d-none d-md-block col-md-4">Prix htva (21%)</h4>
+                          <h4 class="d-none d-md-block col-md-5">Nom</h4>
+                           <h4 class=" d-none d-md-block col-md-3">Prix htva (21%)</h4>
                            <h4 class="d-none d-md-block col-md-3">Quantité</h4>
                         </div>
                             <?php
@@ -57,42 +57,37 @@
                                 {
                                     ?>
                             <form action="ajout_panier.php?action=ajout&amp;l&amp;q&amp;p" method="post">
-                                <div class='bg-light row col-12 border-bottom py-1 row'>
-                                    <div class="col-md-4"><span class="d-md-none d-sm-block mt-1"><h4>Nom :</h4></span>
-                                    <input type='text' class="form-control-plaintext" name='nom' value="<?=$donnees['nom']?>"></div>
-                                    <div class="col-md-4"><span class="d-md-none d-sm-block mt-1"><h4>Prix htva (21%) :</h4> </span>
-                                    <input type="text" name='prix' class="form-control-plaintext" value="<?=$donnees['prix'];?>">
+                                <div class='bg-light col-12 border-bottom py-1 row'>
+                                    <div class="col-md-5"><span class="d-md-none d-sm-block mt-1"><h4>Nom :</h4></span>
+                                    <input type='hidden' name='nom' value="<?=$donnees['nom'];?>"><?=$donnees['nom'];?></div>
+                                    <div class="col-md-3"><span class="d-md-none d-sm-block mt-1"><h4>Prix htva (21%) :</h4> </span>
+                                    <input type="hidden" name='prix' value="<?=$donnees['prix'];?>"><?=$donnees['prix'];?>
                                     </div><div class="col-md-3"><span class="d-md-none d-sm-block mt-1"><h4>Quantité</h4> </span>
-                                    <input class="form-control"type="number" min="1" max="99" value="1" name="nombre" required>
+                                    <input class="form-control" type="number" min="1" max="99" value="1" name="nombre">
                                     </div>
-                                    <div class="text-center col-md-1 mx-auto container">
+                                    <div class="text-center col-1 mx-auto container">
                                    <input class="btn btn-light" value="+" type='submit' title="Ajouter au panier">
                                     </div>
                                 </div>
+                       </form>
                                     <?php
                                 }
                                 $reponse->closeCursor();
                             ?>
-                       </form>
+                  </div>
                 </div>
             </div>
         </div> 
     </div>
 </div>
-<?php
-    $id=$_POST['proid'];
-    $quantite=$_POST['nombre'];
-    $requete = "INSERT INTO commande VALUES ('', '$quantite','$id' )";
-    $bdd->exec($requete);
-    $message = 'Produit ajouté';
-?> 
 <div class="container">
-    <footer class="col-xs-12">
+    <footer class="col-12">
         <?php
-          include '../footer.php';  
+          include 'footer.php';  
         ?>
     </footer>
 </div>
+
 <script src="../assets/js/jquery.min.js"></script>
 <script src="../assets/js/popper.min.js"></script> 
 <script src="../assets/js/bootstrap.min.js"></script>    

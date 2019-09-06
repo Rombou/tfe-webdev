@@ -34,7 +34,7 @@
                   include 'navigation.php';  
                 ?>
             </div>
-            <div class="col-lg-9 col-md-10 col-sm-9 my-2">
+            <div class="col-lg-9 col-md-10 col-sm-10 my-2">
                <div class="container">
                     <nav aria-label="breadcrumb">
                           <ol class="breadcrumb bg-light">
@@ -96,7 +96,7 @@
                                 $bdd->exec($requete);
                               ?>
                               <p class="alert alert-success"> Produit(s) commandé(s)</p>
-                              <p class="alert alert-info">Vous recevrez un mail de confirmation. <br>Attention ce mail peut être succétible de se trouver dans vos spams.</p>
+                              <p class="alert alert-info">Vous recevrez un mail de confirmation. <br>Attention ce mail peut être susceptible de se trouver dans vos spams.</p>
                               <?php
                           }
                           else {

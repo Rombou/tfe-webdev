@@ -38,7 +38,7 @@ include 'panier_fonction.php';
                   include 'navigation.php';  
                 ?>
             </div>
-            <div class="col-lg-9 col-md-10 col-sm-9 mt-2">
+            <div class="col-lg-9 col-md-10 col-sm-10 mt-2">
             <div class="container">
                <nav aria-label="breadcrumb">
                       <ol class="breadcrumb bg-light">
@@ -66,7 +66,7 @@ include 'panier_fonction.php';
                           <h4 class="d-block d-md-none">Produit</h4>
                            <h4 class=" d-none d-md-block col-md-4">Libellé</h4>
                            <h4 class="d-none d-md-block col-md-3">Quantité</h4>
-                           <h4 class="d-none d-md-block col-md-3">Prix unitaire</h4>
+                           <h4 class="d-none d-md-block col-md-2">Prix unitaire</h4>
                            <h4 class="d-none d-md-block col-md-2">Prix HTVA</h4>
                         </div>
             <?php
@@ -79,7 +79,7 @@ include 'panier_fonction.php';
                             <div class="col-md-3"><span class="d-md-none d-sm-block mt-1"><h4>Quantité :</h4> </span>
                             <?=htmlspecialchars($_SESSION['panier']['qteProduit'][$i]);?>
                             </div>
-                            <div class="col-md-3"><span class="d-md-none d-sm-block mt-1"><h4>Prix unitaire :</h4></span>
+                            <div class="col-md-2"><span class="d-md-none d-sm-block mt-1"><h4>Prix unitaire :</h4></span>
                            <?=htmlspecialchars($_SESSION['panier']['prixProduit'][$i]);?></div>
                             <div class="col-md-2"><span class="d-md-none d-sm-block mt-1"><h4>Prix HTVA :</h4></span>
                               <?php
@@ -87,6 +87,7 @@ include 'panier_fonction.php';
                                 echo $prix.' €';
                                 ?>
                             </div>
+                            <div class="col-1"><a class='btn btn-light' href="<?=htmlspecialchars("panier.php?action=suppression&l=".rawurlencode($_SESSION['panier']['libelleProduit'][$i]));?>"><i class='fas fa-times'></i></a></div>
                         </div>
 				<?php
 			         }

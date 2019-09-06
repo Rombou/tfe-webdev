@@ -37,7 +37,7 @@ include 'panier_fonction.php';
                   include 'navigation.php';  
                 ?>
             </div>
-            <div class="col-lg-9 col-md-10 col-sm-9 mt-2">
+            <div class="col-lg-9 col-md-10 col-sm-10 mt-2">
             <div class="container">
                <nav aria-label="breadcrumb">
                       <ol class="breadcrumb bg-light">
@@ -63,7 +63,7 @@ include 'panier_fonction.php';
                           <h4 class="d-block d-sm-none col-sm-4">Produit</h4>
                            <h4 class=" d-none d-sm-block col-sm-4">Libellé</h4>
                            <h4 class="d-none d-sm-block col-sm-4">Quantité</h4>
-                           <h4 class="d-none d-sm-block col-sm-3">Prix unitaire</h4>
+                           <h4 class="d-none d-sm-block col-sm-4">Prix unitaire</h4>
                         </div>
             <?php
 			for ($i=0 ;$i < $nbArticles ; $i++)
@@ -75,10 +75,8 @@ include 'panier_fonction.php';
                             <div class="col-sm-4"><span class="d-sm-none d-block mt-1"><h4>Quantité :</h4> </span>
                             <input type="number" class="form-control col-sm-8" min="1" max="99" value="<?=htmlspecialchars($_SESSION['panier']['qteProduit'][$i]);?>" name="q[]">
                             </div>
-                            <div class="col-sm-3"><span class="d-sm-none d-block mt-1"><h4>Prix unitaire :</h4></span>
+                            <div class="col-sm-4"><span class="d-sm-none d-block mt-1"><h4>Prix unitaire :</h4></span>
                            <?=htmlspecialchars($_SESSION['panier']['prixProduit'][$i]);?></div>
-                            <div class="mx-auto col-sm-1 text-center">
-                            <a class='btn btn-light' href="<?=htmlspecialchars("panier.php?action=suppression&l=".rawurlencode($_SESSION['panier']['libelleProduit'][$i]));?>"><i class='fas fa-times'></i></a></div>
                         </div>
 				<?php
 			         }

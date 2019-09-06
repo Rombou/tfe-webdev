@@ -34,7 +34,7 @@
                   include 'navigation.php';  
                 ?>
             </div>
-            <div class="col-lg-9 col-md-10 col-sm-9 mt-2">
+            <div class="col-lg-9 col-md-10 col-sm-10 my-2">
                <div class="container">
                 <nav aria-label="breadcrumb">
                       <ol class="breadcrumb bg-light">
@@ -43,10 +43,11 @@
                         <li class="breadcrumb-item active" aria-current="page">Brique pilée</li>
                       </ol>
                 </nav>
-                <div class="table-secondary row col-12 py-2">
+                <div class="container col-12">
+                    <div class="table-secondary row col-12 py-2">
                          <h4 class="d-block d-md-none">Produit</h4>
-                          <h4 class="d-none d-md-block col-md-4">Nom</h4>
-                           <h4 class=" d-none d-md-block col-md-4">Prix htva (21%)</h4>
+                          <h4 class="d-none d-md-block col-md-5">Nom</h4>
+                           <h4 class=" d-none d-md-block col-md-3">Prix htva (21%)</h4>
                            <h4 class="d-none d-md-block col-md-3">Quantité</h4>
                         </div>
                             <?php
@@ -57,22 +58,23 @@
                                     ?>
                             <form action="ajout_panier.php?action=ajout&amp;l&amp;q&amp;p" method="post">
                                 <div class='bg-light row col-12 border-bottom py-1 row'>
-                                    <div class="col-md-4"><span class="d-md-none d-sm-block mt-1"><h4>Nom :</h4></span>
-                                    <input type='text' class="form-control-plaintext" name='nom' value="<?=$donnees['nom']?>"></div>
-                                    <div class="col-md-4"><span class="d-md-none d-sm-block mt-1"><h4>Prix htva (21%) :</h4> </span>
-                                    <input type="text" name='prix' class="form-control-plaintext" value="<?=$donnees['prix'];?>">
+                                    <div class="col-md-5"><span class="d-md-none d-sm-block mt-1"><h4>Nom :</h4></span>
+                                    <input type='hidden' name='nom' value="<?=$donnees['nom'];?>"><?=$donnees['nom'];?></div>
+                                    <div class="col-md-3"><span class="d-md-none d-sm-block mt-1"><h4>Prix htva (21%) :</h4> </span>
+                                    <input type="hidden" name='prix' value="<?=$donnees['prix'];?>"><?=$donnees['prix'];?>
                                     </div><div class="col-md-3"><span class="d-md-none d-sm-block mt-1"><h4>Quantité</h4> </span>
-                                    <input class="form-control"type="number" min="1" max="99" value="1" name="nombre" required>
+                                    <input class="form-control" type="number" min="1" max="99" value="1" name="nombre">
                                     </div>
                                     <div class="text-center col-md-1 mx-auto container">
                                    <input class="btn btn-light" value="+" type='submit' title="Ajouter au panier">
                                     </div>
                                 </div>
+                           </form>
                                     <?php
                                 }
                                 $reponse->closeCursor();
                             ?>
-                       </form>
+                   </div>
                 </div>
             </div>
         </div> 

@@ -1,7 +1,7 @@
 <span class="d-none"><?=session_start();?></span>
   
 <div class="d-none d-lg-block">
-    <nav class="nav-link">
+    <nav class="nav-link mb-3">
             <ul class="nav" role="navigation">
                 <li class="col-sm-12 mb-2"><a href="../index.php">Accueil</a></li>
                 <li class="col-sm-12 mb-2"><a href="../produit.php">Produits</a></li>
@@ -48,7 +48,7 @@
             </div>
         </div>
         <div>
-            <button class="btn row btn-light" style="position : relative;" onclick="location.href='panier.php'" style="cursor: pointer"><i class="fas fa-shopping-cart"></i><span class="text-center rounded-circle bg-light border border-secondary p1 px-2 ml-2" style="position : absolute;"><?php
+            <button class="btn row btn-light m-1" style="position : relative;" onclick="location.href='panier.php'" style="cursor: pointer"><i class="fas fa-shopping-cart"></i><span class="text-center rounded-circle bg-light border border-secondary p1 px-2 ml-2" style="position : absolute;"><?php
             include 'nombrepanier.php';?></span></button>
         </div>
            </div>

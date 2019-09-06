@@ -29,7 +29,7 @@
                   include 'navigation.php';  
                 ?>
             </div>
-            <div class="col-lg-9 col-md-10 my-1">
+            <div class="col-lg-9 col-md-10 col-sm-10 my-1">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb bg-light">
                 <li class="breadcrumb-item">Gravissime</li>
@@ -47,95 +47,9 @@
     $req->execute(array(
         'mail'=> $email));
     $resultat = $req->fetch();    
-        if ($email != $resultat['email']) {
-            ?> 
-            <form action="enregistrement.php" method="post" id="inscription" class="needs-validation" name="inscription" novalidate>
-                    <fieldset class="col-12 mb-3">
-                        <legend class="text-center">Login</legend>
-                        <div class="form-group row">
-                                <label for="colFormLabel" class="col-lg-3 col-md-4 col-form-label">Email :</label>
-                                <div class="col-lg-9 col-md-8">
-                                    <input name="email" aria-describedby="emailHelp" class="form-control border-danger" id="colFormLabel" required>
-                                    <div class="text-danger">Mauvais email !</div>
-                                        <span class="valid-feedback">
-                                            Cela semble correct !
-                                        </span>
-                                        <span class="invalid-feedback">
-                                          Champs requis.
-                                        </span>
-                               </div>
-                        </div>
-                        <div class="form-group row">
-                                <label for="colFormLabel" class="col-lg-3 col-md-4 col-form-label">Login :</label>
-                                <div class="col-lg-9 col-md-8">
-                                    <input name="login" type="text" value="<?=$login;?>" class="form-control" id="colFormLabel" readonly>
-                                </div>
-                        </div>
-                        <div class="form-group row">
-                                <label for="colFormLabel" class="col-lg-3 col-md-4 col-form-label">Mot de passe :</label>
-                                <div class="col-lg-9 col-md-8">
-                                    <input name="password" type="password" class="form-control" id="colFormLabel" readonly value="<?=$mdp;?>">
-                               </div>
-                        </div>
-                        <div class="form-group row">
-                                <label for="colFormLabel" class="col-lg-3 col-md-4 col-form-label">Confirmation :</label>
-                                <div class="col-lg-9 col-md-8">
-                                    <input name="confirmpassword" type="password" class="form-control" id="colFormLabel" readonly value="<?=$confirm;?>">
-                               </div>
-                        </div>
-                    </fieldset>  
-                    <div class="text-center">
-                        <input type="submit" value="Enregistrer" class="col-3 btn btn-light">
-                    </div>
-                </form>
-                        <?php
-        }
-        else if ($resultat['login'] != $login){
-            ?>
-            <form action="enregistrement.php" method="post" id="inscription" class="needs-validation" name="inscription" novalidate>
-                    <fieldset class="col-12 mb-3">
-                        <legend class="text-center">Login</legend>
-                        <div class="form-group row">
-                                <label for="colFormLabel" class="col-lg-3 col-md-4 col-form-label">Email :</label>
-                                <div class="col-lg-9 col-md-8">
-                                    <input name="email" value="<?=$email;?>" aria-describedby="emailHelp" class="form-control" id="colFormLabel" readonly>
-                               </div>
-                        </div>
-                        <div class="form-group row">
-                                <label for="colFormLabel" class="col-lg-3 col-md-4 col-form-label">Confirmation login :</label>
-                                <div class="col-lg-9 col-md-8">
-                                    <input name="login" type="text" class="form-control border-danger" id="colFormLabel" required>
-                                    <div class="text-danger">Mauvaise login !</div>
-                                        <span class="valid-feedback">
-                                            Cela semble correct !
-                                        </span>
-                                        <span class="invalid-feedback">
-                                          Champs requis.
-                                        </span>
-                                </div>
-                        </div>
-                        <div class="form-group row">
-                                <label for="colFormLabel" class="col-lg-3 col-md-4 col-form-label">Mot de passe :</label>
-                                <div class="col-lg-9 col-md-8">
-                                    <input name="password" type="password" class="form-control" id="colFormLabel" readonly value="<?=$mdp;?>">
-                               </div>
-                        </div>
-                        <div class="form-group row">
-                                <label for="colFormLabel" class="col-lg-3 col-md-4 col-form-label">Confirmation :</label>
-                                <div class="col-lg-9 col-md-8">
-                                    <input name="confirmpassword" type="password" class="form-control" id="colFormLabel" readonly value="<?=$confirm;?>">
-                               </div>
-                        </div>
-                    </fieldset>  
-                    <div class="text-center">
-                        <input type="submit" value="Enregistrer" class="col-3 btn btn-light">
-                    </div>
-                </form>
-            <?php
-        }
-        else {
+        
             $id = $resultat['id'];
-            $nom = $resultat['nom–ut'];
+            $nom = $resultat['nom_ut'];
             $prenom = $resultat['prenom'];
             
             if ($mdp != $confirm) {
@@ -188,7 +102,6 @@
                         <p class="alert alert-success">Bienvenue <?=$nom;?> <?=$prenom;?>, vous êtes inscit.</p>
                        <?php
             }
-        }
     ?>  
            </div>
         </div>  

@@ -29,7 +29,7 @@
                   include 'navigation.php';  
                 ?>
             </div>
-            <div class="col-lg-9 col-md-10 col-sm-9 my-2">
+            <div class="col-lg-9 col-md-10 col-sm-10 my-2">
                 <div class="container">
                     <nav aria-label="breadcrumb">
                         <ol class="breadcrumb bg-light">
@@ -51,10 +51,10 @@
                                     <div class="bg-light col-12 border-bottom py-1"><h4>Produit :</h4>
                                     <?=nl2br($donnees['produit']);?></div>
                                     <div class="table-secondary col-12 py-1"><h4>Total HTVA (21%) :</h4>
-                                    <?=$donnees['totalHTVA'];?>
+                                    <?=$donnees['totalHTVA'];?> €
                                     </div>
                                     <div class="col-12 bg-light py-1"><h4>Total TVAC</h4>
-                                    <?=$donnees['totalTVAC'];?>
+                                    <?=$donnees['totalTVAC'];?> €
                                     </div>
                                 </div>
                                     <?php

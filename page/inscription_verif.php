@@ -29,7 +29,7 @@
                   include 'navigation.php';  
                 ?>
             </div>
-            <div class="col-lg-9 col-md-10 my-1">
+            <div class="col-lg-9 col-md-10 col-sm-10 my-1">
                <div class="container">
         <nav aria-label="breadcrumb">
             <ol class="breadcrumb bg-light">
@@ -69,7 +69,7 @@ $resultat = $reponse->fetch();
                         <div class="form-group container">
                                <div class="row">
                                     <div class="col-xs-2 mx-auto">
-                                     <p class="alert-success alert">Toutes les informations sont correctes. Voulez-vous continuer</p> 
+                                     <p class="alert-success alert">Toutes les informations sont correctes. Voulez-vous continuer ?</p> 
                                     </div>
                                 </div>
                             </div>
@@ -208,19 +208,19 @@ $resultat = $reponse->fetch();
                                     <label for="colFormLabel" class="col-lg-3 col-md-4 col-form-label">Télephone/GSM :</label>
                                     <div class="col-md-8 col-lg-9 container">
                                        <div class="input-group">
-                                            <input name="prefixe" type="tel" class="form-control border-danger" id="colFormLabel" title="Format téléphonique" required value="0" min="2" max="4">
+                                            <input name="prefixe" type="tel" class="form-control" required minlength="2" maxlength="4" value="0" min="0">
                                             <div class="input-group-prepend">
                                                  <div class="input-group-text">/</div>
                                             </div>
-                                            <input name="champ1" type="tel" class="form-control border-danger" required min="2" max="3">
+                                            <input name="champ1" type="tel" class="form-control" required minlength="2" maxlength="3" min="0">
                                             <div class="input-group-prepend">
                                                  <div class="input-group-text"> </div>
                                             </div>
-                                            <input name="champ2" type="tel" class="form-control border-danger" required min="2" max="2">
+                                            <input name="champ2" type="tel" class="form-control" required minlength="2" maxlength="2" min="0">
                                             <div class="input-group-prepend">
                                                  <div class="input-group-text"> </div>
                                             </div>
-                                            <input name="champ3" type="tel" class="form-control border-danger" required min="2" max="2">
+                                            <input name="champ3" type="tel" class="form-control" required minlength="2" maxlength="2">
                                         </div>
                                         <div class="text-danger">Mauvais numéro de téléphone. Merci de rééssayer.</div>
                                         <small class="form-text alert alert-info"> Seuls les numéros écrits de cette manière sont acceptés : <br> 0../.. .. .. ou 0./... .. .. ou 04../.. .. ..</small>
