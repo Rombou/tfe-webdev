@@ -29,12 +29,12 @@
 <div class="container">
    <div class="col-xs-12 content">
         <div class="row">
-            <div class="col-lg-3 col-md-2 col-sm-1 col-xs-2">
+            <div class="col-lg-3 col-md-2 col-sm-2 col-xs-2">
                 <?php
                   include 'navigation.php';  
                 ?>
             </div>
-            <div class="col-lg-9 col-md-10 d-none d-lg-block my-1">
+            <div class="col-lg-9 col-md-10 col-sm-10 my-1">
                 <div class="container">
                    <nav aria-label="breadcrumb">
                       <ol class="breadcrumb bg-light">
@@ -42,6 +42,7 @@
                         <li class="breadcrumb-item active">Produits</li>
                       </ol>
                 </nav>
+                <div class="d-none d-lg-block">
                     <div class="row">
                         <div class="col-lg-3 col-md-6 col-sm-6 my-2">
                             <div class="img_hover">
@@ -141,9 +142,7 @@
                         </div>
                     </div>
                 </div>
-            </div>
-            <div class="col-sm-12 col-md-10 d-lg-none d-none d-sm-block my-2 mx-auto">
-                <div class="container">
+                <div class="d-lg-none d-none d-sm-block my-2 mx-auto">
                     <div class="row">
                         <div class="col-sm-6 mb-3 mx-auto">
                                 <a href="page/gravier.php">
@@ -211,7 +210,6 @@
                         </div>
                     </div>
                 </div>
-            </div>
             <div class="d-sm-none d-xs-block my-2 mx-auto">
                 <div class="container">
                         <div class="col-10 mb-3 mx-auto">
@@ -282,6 +280,8 @@
                 </div>
             </div>
         </div>
+       </div>
+    </div>
 </div>
 <div class="container">
     <footer>

@@ -31,7 +31,7 @@
                   include 'navigation.php';  
                 ?>
             </div>
-            <div class="col-lg-9 col-md-10 col-sm-9 mt-2">
+            <div class="col-lg-9 col-md-10 col-sm-10 mt-2">
             <nav aria-label="breadcrumb">
                       <ol class="breadcrumb bg-light">
                           <li class="breadcrumb-item">Gravissime</li>

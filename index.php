@@ -11,12 +11,6 @@
     <link rel="shortcut icon" href="assets/image/favicon.ico" type="image/x-icon">
     <link rel="icon" href="assets/image/favicon.ico" type="image/x-icon">
     <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.0.13/css/all.css">
-    <style>
-        .panel-title a:hover{
-            text-decoration: inherit;
-            border-bottom: 1pt solid #666;
-        }
-    </style>
 </head>
 <body>
 <div class="container">
@@ -36,12 +30,12 @@
   <div class="content">
        <div class="col-xs-12">
            <div class="row">
-                <div class="col-lg-3 col-md-2 col-sm-1">
+                <div class="col-lg-3 col-md-2 col-sm-2">
                     <?php
                       include 'navigation.php';  
                     ?>
                 </div>
-               <div class="col-lg-9 col-md-10 col-sm-11 my-2">
+               <div class="col-lg-9 col-md-10 col-sm-10 my-2">
                 <div class="container">
                 <nav aria-label="breadcrumb">
                       <ol class="breadcrumb bg-light">
@@ -50,54 +44,53 @@
                       </ol>
                 </nav>
                    <h3 class="text-center">Faites appel à nos services pour</h3>
-                  <div id="acordeon" class="pannel-group">
-                            <div class="panel panel-default panel-faq col-12">
-                              <div class="panel-heading" id="service">
-                                <p class="panel-title">
-                                    <a data-toggle="collapse" data-parent="#accordion" href="#gravier" title="En savoir plus">
-                                    Du gravier &emsp;<span class="pull-right"><i class="fas fa-chevron-down" style="color:#666" aria-hidden="true"></i></span></a>
-                                <p>
-                                </div>
-                                <div id="gravier" class="panel-collapse collapse">
-                                   <div class="panel-body col-12">
-                                        <p>
-                                            Décoratif (gris, beige, blanc, rouge,...) <br>
-                                            D'autres calibres pour vos fondations,  drainage,..
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="panel panel-default panel-faq col-12">
-                              <div class="panel-heading" id="service">
-                                <p class="panel-title">
-                                    <a data-toggle="collapse" data-parent="#accordion" href="#sable" title="En savoir plus"> Du sable &emsp;<span class="pull-right"><i class="fas fa-chevron-down" style="color:#666" aria-hidden="true"></i></span></a>
-                                <p>
-                                </div>
-                                <div id="sable" class="panel-collapse collapse">
-                                   <div class="panel-body col-12">
-                                        <p>
-                                            Maçon ou béton pour votre construction <br>
-                                            Blanc ou autre pour votre piste équestre, bac à sable,...
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                            <div class="panel panel-default panel-faq col-12">
-                              <div class="panel-heading" id="service">
-                                <p class="panel-title">
-                                    <a data-toggle="collapse" data-parent="#accordion" href="#ciment" title="En savoir plus"> Des produits à base de ciment &emsp;<span class="pull-right"><i class="fas fa-chevron-down" style="color:#666" aria-hidden="true"></i></span></a>
-                                <p>
-                                </div>
-                                <div id="ciment" class="panel-collapse collapse">
-                                   <div class="panel-body col-12">
-                                        <p>
-                                            Du sable stabilisé (chape, remblai, klinkers,...) <br>
-                                            Du béton maigre ou de la dolomie stabilisée
-                                        </p>
-                                    </div>
-                                </div>
-                            </div>
-                      </div>
+                   <div id="accordion">
+  <div>
+    <div id="headingOne">
+      <h5 class="mb-2">
+        <a class="nav navbar col-5" data-toggle="collapse" data-target="#collapseOne" aria-expanded="true" aria-controls="collapseOne">
+            Du gravier <span class="pl-2 pull-right"><i class="fas fa-chevron-down text-dark" aria-hidden="true"></i></span>
+        </a>
+      </h5>
+    </div>
+    <div id="collapseOne" class="collapse ml-5 my-2" aria-labelledby="headingOne" data-parent="#accordion">
+       <p>
+            Décoratif (gris, beige, blanc, rouge,...) <br>
+            D'autres calibres pour vos fondations,  drainage,..
+        </p>
+    </div>
+  </div>
+  <div>
+    <div id="headingTwo">
+      <h5 class="mb-2">
+        <a class="nav navbar col-5" data-toggle="collapse" data-target="#collapseTwo" aria-expanded="true" aria-controls="collapseTwo">
+            Du sable <span class="pull-right"><i class="fas fa-chevron-down text-dark" aria-hidden="true"></i></span>
+        </a>
+      </h5>
+    </div>
+    <div id="collapseTwo" class="collapse ml-5 my-2" aria-labelledby="headingTwo" data-parent="#accordion">
+       <p>
+            Maçon ou béton pour votre construction <br>
+            Blanc ou autre pour votre piste équestre, bac à sable,...
+        </p>
+    </div>
+  </div>
+  <div>
+    <div id="headingThree">
+      <h5 class="mb-0">
+        <a class="nav navbar col-5" data-toggle="collapse" data-target="#collapseThree" aria-expanded="false" aria-controls="collapseThree">
+          Des produits à base de ciment <span class="pull-right"><i class="fas fa-chevron-down text-dark" aria-hidden="true"></i></span>
+        </a>
+      </h5>
+    </div>
+    <div id="collapseThree" class="collapse ml-5 my-2" aria-labelledby="headingThree" data-parent="#accordion">
+        <p>
+          Du sable stabilisé (chape, remblai, klinkers,...) <br>
+          Du béton maigre ou de la dolomie stabilisée
+        </p>
+    </div>
+  </div>
+</div>
                       <div class="d-none d-lg-block">
                         <div class="row">
                             <div class="col-lg-5 col-sm-12 mt-2 mb-4">

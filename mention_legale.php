@@ -36,12 +36,12 @@
   <div class="content">
        <div class="col-xs-12">
            <div class="row">
-                <div class="col-lg-3 col-md-2 col-sm-1">
+                <div class="col-lg-3 col-md-2 col-sm-2">
                     <?php
                       include 'navigation.php';  
                     ?>
                 </div>
-               <div class="col-lg-9 col-md-10 col-sm-11 my-2">
+               <div class="col-lg-9 col-md-10 col-sm-10 my-2">
                 <div class="container">
                 <nav aria-label="breadcrumb">
                       <ol class="breadcrumb bg-light">
